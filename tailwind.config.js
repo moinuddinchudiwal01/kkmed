@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
     './App.{js,jsx,ts,tsx}',
-    './screens/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
@@ -10,7 +10,9 @@ module.exports = {
       colors: {
         primary: '#1DA1F2',
         secondary: '#14171A',
-        accent: '#F5A623',
+        accent: '#c7f4c2',
+        lightPurple:"#d7d0ff",
+        darkPurple:"#5f48e6"
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
