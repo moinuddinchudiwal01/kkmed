@@ -23,7 +23,7 @@
     "logLevel": "Verbose"
   },
   "files.exclude": {
-    "node_modules": true,
+    "node_modules": false,
     "ios/build": true,
     "android/app/build": true
   }

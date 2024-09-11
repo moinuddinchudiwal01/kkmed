@@ -10,7 +10,9 @@ module.exports = {
       colors: {
         primary: '#1DA1F2',
         secondary: '#14171A',
-        accent: '#F5A623',
+        accent: '#c7f4c2',
+        lightPurple:"#d7d0ff",
+        darkPurple:"#5f48e6"
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
