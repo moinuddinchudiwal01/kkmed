@@ -22,6 +22,18 @@ export default function TabLayout() {
         }}
       />
 
+<Tabs.Screen
+        name="upload/index"
+        options={{
+          title: 'Upload',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? 'cloud-upload' : 'cloud-upload-outline'}
+              color={color}
+            />
+          ),
+        }}
+      />
       <Tabs.Screen
         name="order/index"
         options={{
@@ -29,19 +41,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? 'list' : 'list-outline'}
-              color={color}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="upload/index"
-        options={{
-          title: 'Upload',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? 'cloud-upload' : 'cloud-upload-outline'}
               color={color}
             />
           ),

@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { SafeAreaView, Text, View, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { styled } from 'nativewind';
+const image3 = require('@assets/images/image3.png');
+const image4 = require('@assets/images/image4.png');
+const image5 = require('@assets/images/image5.png');
+const image6 = require('@assets/images/image6.png');
+const image7 = require('@assets/images/image7.png');
+const image8 = require('@assets/images/image8.png');
+
 import Ionicons from '@expo/vector-icons/Ionicons';
-// Import categories JSON
+import { styled } from 'nativewind';
+import React from 'react';
+import { Image, ImageSourcePropType, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
-const StyledSafeAreaView = styled(SafeAreaView);
 const StyledTextInput = styled(TextInput);
 const StyledTouchableOpacity = styled(TouchableOpacity);
 const StyledScrollView = styled(ScrollView);
@@ -16,39 +22,38 @@ const categories = [
   {
     id: 1,
     title: 'Medicines',
-    image: '@assets/images/image3.png'
+    image: image3
   },
   {
     id: 2,
     title: 'Nutritional Drinks',
-    image: '@assets/images/image4.png'
+    image: image4
   },
   {
     id: 3,
     title: 'Ayurveda',
-    image: '@assets/images/image5.png'
+    image: image5
   },
   {
     id: 4,
     title: 'Vitamins & Supplement',
-    image: '@assets/images/image6.png'
+    image: image6
   },
   {
     id: 5,
     title: 'Diabetes Care',
-    image: '@assets/images/image7.png'
+    image: image7
   },
   {
     id: 6,
     title: 'Health Devices',
-    image: '@assets/images/image8.png'
-  }  
+    image: image8
+  }
 ];
-
 export default function HomeScreen() {
 
   return (
-    <StyledSafeAreaView className="flex-1 bg-[#f8f8f8] mt-10">
+    <SafeAreaView >
       <StyledScrollView>
         {/* Header Section */}
         <StyledView className="flex-row justify-between items-center px-4 py-2 bg-white">
@@ -77,7 +82,7 @@ export default function HomeScreen() {
         <StyledView className="mx-4 bg-lightPurple p-4 mb-4" style={{ borderRadius: 20 }}>
           <StyledText className="text-base font-extrabold text-black">UPLOAD PRESCRIPTION</StyledText>
           <StyledText className="text-sm text-gray-700">
-            Upload a Prescription and Tell Us what you Need. We do the Rest.!
+            Upload a Prescription and Tell Us what you Need. We'll do the Rest.!
           </StyledText>
           <StyledView className='flex flex-row justify-between'>
             <StyledText className="w-1/3 text-sm text-black font-bold mt-2">
@@ -111,14 +116,14 @@ export default function HomeScreen() {
           </StyledView>
         </StyledView>
       </StyledScrollView>
-    </StyledSafeAreaView>
+    </SafeAreaView>
   );
 }
 
 
-const CategoryCard = ({ title, image }: { title: string; image: string }) => (
+const CategoryCard = ({ title, image }: { title: string; image: ImageSourcePropType }) => (
   <StyledTouchableOpacity className="w-[48%] bg-white rounded-lg p-4 mb-4 items-center">
-    <StyledImage source={{ uri: image }} className="w-20 h-20 mb-2" />
+    <StyledImage source={image} className="w-20 h-20 mb-2" />
     <StyledText className="text-sm font-medium text-black">{title}</StyledText>
   </StyledTouchableOpacity>
 );
