@@ -57,7 +57,9 @@ export default function OrderScreen() {
             </StyledView>
             <StyledView className="flex-row justify-between items-center">
               <StyledTouchableOpacity className="border border-gray-500 rounded-full px-4 py-1 mt-2">
-                <StyledText className="text-black">Details</StyledText>
+                <Link href={"/pages/orderdetail/1"}>
+                  details
+                </Link>
               </StyledTouchableOpacity>
               <StyledText className="text-green-500">Delivered</StyledText>
             </StyledView>
