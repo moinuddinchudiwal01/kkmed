@@ -1,0 +1,52 @@
+{
+  "status": "success",
+  "statusCode": "200",
+  "message": "Data retrieved successfully",
+  "data": {
+    "medcine": {
+      "main_category":"medcine",
+      "medcine_name":"Dolo Paracetamol 650mg Strip Of 15 Tablets",
+      "brand_name":"By MICRO LABS",
+      "strip_quantity":"15",
+      "old_price":"10",
+      "new_price":"20",
+      "offer":"12",
+      "description_title":"Dolo 650 MG Description",
+      "description_content":"Dolo 650 tablet is used to treat pain, fever, headaches, toothaches, migraines, body aches, and fever. It contains paracetamol, which inhibits the formation of certain chemicals that cause pain and fever in the body. Side effects of Dolo 650 are rare. Some individuals may experience temporary stomach discomfort, nausea, or vomiting. If any of these side effects persist or become worse, consult your doctor. Dolo 650 dosage and duration may vary depending on the condition and symptoms. Do not take more than four tablets in 24 hours, and avoid giving them to children under 12. Stop taking the medication once the fever and pain subside. Do not take it if you are allergic to paracetamol or any components of Dolo 650. Consult a doctor before using it for an extended period. Other medicines such as Crocin 650mg Advance, Lanol Er 650mg, P 650mg, and Dolopar 650mg also contain paracetamol as their active ingredient.",
+      "product_summary":[{
+        "offer_price":"Offer Price"
+      }],
+      "medicine_uses":[
+        {
+          "title":"Uses of Dolo 650 MG",
+          "description":"Dolo 650 tablets relieve pain and fever. It is used to treat headaches, muscle aches, toothaches, and fevers. Dolo 650 also helps with pain and inflammation from conditions like arthritis, spondylitis, and sports injuries."
+        }
+      ],
+      "medicine_side_effects":[
+        {
+          "title":"Side effects of Dolo 650 MG",
+          "description":"Chances of developing side effects with the Dolo 650 are rare if taken within the recommended doses. However, in rare cases, you may experience -",
+          "main_effects":["Skin rash","Itching","Blisters","Allergic reaction"]
+        }
+      ],
+      "directions_of_use": "Take the Dolo 650 tablet as a whole with a glass of water or as directed by your doctor. Do not consume more than that recommended by your doctor.",
+      "frequently_asked_questions":[
+        {
+          "id":"1",
+          "question":"What happens if I take 2 Dolo 650 tablets?",
+          "answer":"As with any medication, Dolo 650 must be taken exactly as prescribed. Daily intake should not exceed 4000 mg. The most common side effects at high doses are liver damage and severe epidermal necrosis. If you have liver or kidney disease, heart problems, or stomach ulcers, exercise extreme caution."
+        },
+        {
+          "id":"2",
+          "question":"What happens if I take 2 Dolo 650 tablets?",
+          "answer":"As with any medication, Dolo 650 must be taken exactly as prescribed. Daily intake should not exceed 4000 mg. The most common side effects at high doses are liver damage and severe epidermal necrosis. If you have liver or kidney disease, heart problems, or stomach ulcers, exercise extreme caution."
+        },{
+          "id":"3",
+          "question":"What happens if I take 2 Dolo 650 tablets?",
+          "answer":"As with any medication, Dolo 650 must be taken exactly as prescribed. Daily intake should not exceed 4000 mg. The most common side effects at high doses are liver damage and severe epidermal necrosis. If you have liver or kidney disease, heart problems, or stomach ulcers, exercise extreme caution."
+        }
+      ]
+    }
+  },
+  "updated_at":"25 June 2024"
+}
