@@ -97,7 +97,7 @@ export default function HomeScreen() {
               FLAT 25% OFF ON MEDICINES*
             </StyledText>
             <StyledTouchableOpacity className="bg-darkPurple rounded-lg px-4 py-2 mt-4">
-              <StyledText className="text-white text-center">ORDER NOW</StyledText>
+              <Link href={'tabs/upload'} className="text-white text-center">ORDER NOW</Link>
             </StyledTouchableOpacity>
           </StyledView>
         </StyledView>
