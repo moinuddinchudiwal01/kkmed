@@ -1,6 +1,5 @@
-import { Stack } from 'expo-router';
+import { Stack, usePathname, useRouter } from 'expo-router';
 import React, { useEffect } from 'react';
-import { useRouter, usePathname } from 'expo-router';
 
 export default function RootLayout() {
   const router = useRouter();

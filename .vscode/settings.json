@@ -29,6 +29,8 @@
   },
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
-    "source.organizeImports":true
+    "source.organizeImports":true,
+    "source.removeUnused.ts": true,
+    "source.removeUnusedImports": true,
   }
 }
