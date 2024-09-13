@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#1DA1F2',
-        secondary: '#14171A',
+        secondary: '#1d212d',
         accent: '#c7f4c2',
         lightPurple:"#d7d0ff",
         darkPurple:"#5f48e6"
