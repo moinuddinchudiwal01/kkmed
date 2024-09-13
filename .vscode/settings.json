@@ -1,18 +1,18 @@
 {
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "javascript.format.enable": false,
   "javascript.validate.enable": false,
   "files.autoSave": "onFocusChange",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "eslint.enable": false,
+  "eslint.enable": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.requireConfig": true,
   "prettier.singleQuote": true, 
   "prettier.trailingComma": "all",
   "prettier.printWidth": 80, 
-  "prettier.tabWidth": 2, 
+  "prettier.tabWidth": 2,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -23,8 +23,12 @@
     "logLevel": "Verbose"
   },
   "files.exclude": {
-    "node_modules": false,
+    "node_modules": true,
     "ios/build": true,
     "android/app/build": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports":true
   }
 }
