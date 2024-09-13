@@ -11,6 +11,7 @@ import React from 'react';
 import { Image, ImageSourcePropType, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { Link } from 'expo-router';
 const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledTextInput = styled(TextInput);
@@ -58,11 +59,18 @@ export default function HomeScreen() {
         {/* Header Section */}
         <StyledView className="flex-row justify-between items-center px-4 py-2 bg-white">
           <StyledView className="flex-row items-center gap-1">
+            <Link href={'/tabs/profile'} >
             <Ionicons name="person-circle-outline" size={28} color="#151921" />
+            </Link>
             <StyledText className="text-xl font-semibold text-black">MEDICINE</StyledText>
           </StyledView>
-          <StyledTouchableOpacity className="relative">
-            <Ionicons name="notifications-outline" size={28} color="#151921" />
+          <StyledTouchableOpacity className="relative flex flex-row gap-1">
+            <Link href={'/pages/cart'}>
+              <Ionicons name="cart-outline" size={28} color="#151921" />
+            </Link>
+            <Link href={'/pages/notfication'}>
+              <Ionicons name="notifications-outline" size={28} color="#151921" />
+            </Link>
             <StyledView className="absolute top-0 right-0 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
               <StyledText className="text-white text-xs">2</StyledText>
             </StyledView>
@@ -116,6 +124,7 @@ export default function HomeScreen() {
           </StyledView>
         </StyledView>
       </StyledScrollView>
+
     </SafeAreaView>
   );
 }
