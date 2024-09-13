@@ -1,5 +1,4 @@
 import { StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -11,12 +10,8 @@ export default function OrderScreen() {
     <SafeAreaView>
       <StyledScrollView className="bg-white px-4 py-2">
         {/* Header */}
-        <StyledView className="flex-row items-center justify-between mb-4">
-        <Link href="/tabs/home">
-            <Ionicons name="arrow-back" size={24} color="black" />
-          </Link>
-          <StyledText className="text-xl font-bold text-black">My Orders</StyledText>
-          <Ionicons name="search-outline" size={24} color="black" />
+        <StyledView className="flex-row items-center justify-center mb-4">
+          <StyledText className="text-xl font-bold text-black uppercase">My Orders</StyledText>
         </StyledView>
 
         {/* Tabs */}

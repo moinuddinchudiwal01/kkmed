@@ -53,10 +53,7 @@ export default function HomeScreen() {
         {/* Header Section */}
         <StyledView className="flex-row justify-between items-center px-4 py-2 bg-white">
           <StyledView className="flex-row items-center gap-1">
-            <Link href={'/tabs/profile'} >
-            <Ionicons name="person-circle-outline" size={28} color="#151921" />
-            </Link>
-            <StyledText className="text-xl font-semibold text-black">MEDICINE</StyledText>
+            <StyledText className="text-xl font-semibold text-black">MkMed</StyledText>
           </StyledView>
           <StyledTouchableOpacity className="relative flex flex-row gap-1">
             <Link href={'/pages/cart'}>
