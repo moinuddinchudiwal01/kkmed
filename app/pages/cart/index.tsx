@@ -1,11 +1,18 @@
-import { StyledImage, StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
+import { styled } from 'nativewind';
 import React from 'react';
+import { ScrollView, Text, TouchableOpacity, View , Image} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const image3 = require('@assets/images/image3.png');
 const image4 = require('@assets/images/image4.png');
+
+const StyledView = styled(View);
+const StyledText = styled(Text);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledScrollView = styled(ScrollView);
+const StyledImage = styled(Image);
 
 const cartItems = [
   {

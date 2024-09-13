@@ -6,12 +6,18 @@ const image7 = require('@assets/images/image7.png');
 const image8 = require('@assets/images/image8.png');
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { styled } from 'nativewind';
 import React from 'react';
-import { ImageSourcePropType } from 'react-native';
+import { Image, ImageSourcePropType, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { StyledImage, StyledScrollView, StyledText, StyledTextInput, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
 import { Link } from 'expo-router';
+const StyledView = styled(View);
+const StyledText = styled(Text);
+const StyledTextInput = styled(TextInput);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledScrollView = styled(ScrollView);
+const StyledImage = styled(Image);
 
 const categories = [
   {

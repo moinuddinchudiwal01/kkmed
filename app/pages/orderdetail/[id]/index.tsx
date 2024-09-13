@@ -1,16 +1,25 @@
-import DeliveryInformation from '@components/DeliveryInformation';
-import { StyledImage, StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Link } from 'expo-router';
+import { styled } from 'nativewind';
 import React, { useState } from 'react';
 import {
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Modal,
   Animated,
   Easing,
-  Modal,
-  View
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Link } from 'expo-router';
+import DeliveryInformation from '@components/DeliveryInformation';
 
+const StyledView = styled(View);
+const StyledText = styled(Text);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledScrollView = styled(ScrollView);
+const StyledImage = styled(Image);
 
 export default function OrderScreen() {
   const [openDeliveryInformation, setOpenDeliveryInformation] = useState(false);
