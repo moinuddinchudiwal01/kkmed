@@ -1,14 +1,8 @@
-import { styled } from 'nativewind';
-import React, { useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
-
-const StyledView = styled(View);
-const StyledText = styled(Text);
-const StyledTouchableOpacity = styled(TouchableOpacity);
-const StyledScrollView = styled(ScrollView);
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function OrderScreen() {
   const [activeTab, setActiveTab] = useState('Delivered');

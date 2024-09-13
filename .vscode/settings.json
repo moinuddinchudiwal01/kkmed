@@ -23,12 +23,8 @@
     "logLevel": "Verbose"
   },
   "files.exclude": {
-    "node_modules": false,
+    "node_modules": true,
     "ios/build": true,
     "android/app/build": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit"
   }
 }

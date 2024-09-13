@@ -1,15 +1,9 @@
-import { styled } from 'nativewind';
-import React from 'react';
-import { Image, Text, TouchableOpacity, View, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyledImage, StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const StyledView = styled(View);
-const StyledText = styled(Text);
-const StyledTouchableOpacity = styled(TouchableOpacity);
-const StyledScrollView = styled(ScrollView);
-const StyledImage = styled(Image);
 
 export default function UploadPrescriptionScreen() {
   return (
