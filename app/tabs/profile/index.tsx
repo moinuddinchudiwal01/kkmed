@@ -1,14 +1,8 @@
-import { styled } from 'nativewind';
-import React from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyledImage, StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
-const StyledView = styled(View);
-const StyledText = styled(Text);
-const StyledTouchableOpacity = styled(TouchableOpacity);
-const StyledScrollView = styled(ScrollView);
-const StyledImage = styled(Image);
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ProfileScreen() {
   return (
@@ -60,7 +54,7 @@ export default function ProfileScreen() {
 const ProfileOption = ({ title, icon }: { title: string; icon: string }) => (
   <StyledTouchableOpacity className="flex-row items-center justify-between px-4 py-3 border-b border-gray-200">
     <StyledView className="flex-row items-center">
-      <Ionicons name={icon} size={24} color="black" />
+      <Ionicons name={icon as any} size={24} color="black" />
       <StyledText className="ml-4 text-black text-lg">{title}</StyledText>
     </StyledView>
   </StyledTouchableOpacity>
