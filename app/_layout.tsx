@@ -1,24 +1,26 @@
 import { Stack, usePathname, useRouter } from 'expo-router';
 import React, { useEffect } from 'react';
 
-export default function RootLayout() {
+const RootLayout = () => {
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname === "/") {
+    if (pathname === '/') {
       router.replace('/tabs/home');
     }
-  }, [pathname]);
+  }, [pathname, router]);
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen
-        name="tabs"
+        name='tabs'
         options={{
           headerShown: false,
         }}
       />
     </Stack>
   );
-}
+};
+
+export default RootLayout;

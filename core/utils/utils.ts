@@ -1,7 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Function to set an item in AsyncStorage
-export const setAsyncStorageItem = async (key: string, value: any): Promise<void> => {
+export const setAsyncStorageItem = async (
+  key: string,
+  value: any
+): Promise<void> => {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
@@ -30,7 +33,10 @@ export const removeAsyncStorageItem = async (key: string): Promise<void> => {
 };
 
 // Function to merge an item in AsyncStorage
-export const mergeAsyncStorageItem = async (key: string, value: any): Promise<void> => {
+export const mergeAsyncStorageItem = async (
+  key: string,
+  value: any
+): Promise<void> => {
   try {
     await AsyncStorage.mergeItem(key, JSON.stringify(value));
   } catch (error) {
@@ -59,16 +65,21 @@ export const getAsyncStorageAllKeys = async (): Promise<string[]> => {
 };
 
 // Function to get all items from AsyncStorage
-export const getAllAsyncStorageItems = async (): Promise<Record<string, any>> => {
+export const getAllAsyncStorageItems = async (): Promise<
+  Record<string, any>
+> => {
   try {
     const keys = await AsyncStorage.getAllKeys();
     const items = await AsyncStorage.multiGet(keys);
-    return items.reduce((accumulator, [key, value]) => {
-      if (value) {
-        accumulator[key] = JSON.parse(value);
-      }
-      return accumulator;
-    }, {} as Record<string, any>);
+    return items.reduce(
+      (accumulator, [key, value]) => {
+        if (value) {
+          accumulator[key] = JSON.parse(value);
+        }
+        return accumulator;
+      },
+      {} as Record<string, any>
+    );
   } catch (error) {
     console.error('Error getting all items:', error);
     return {};
