@@ -1,6 +1,8 @@
 import TabNavigator from 'core/layout';
 import React from 'react';
 
-export default function TabLayout() {
+const TabLayout = () => {
   return <TabNavigator />;
 }
+
+export default TabLayout;

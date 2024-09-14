@@ -1,7 +1,14 @@
-import { StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
-import { Link } from 'expo-router';
+import { styled } from 'nativewind';
 import React, { useState } from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Link } from 'expo-router';
+
+const StyledView = styled(View);
+const StyledText = styled(Text);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledScrollView = styled(ScrollView);
 
 export default function OrderScreen() {
   const [activeTab, setActiveTab] = useState('Delivered');
@@ -10,8 +17,12 @@ export default function OrderScreen() {
     <SafeAreaView>
       <StyledScrollView className="bg-white px-4 py-2">
         {/* Header */}
-        <StyledView className="flex-row items-center justify-center mb-4">
-          <StyledText className="text-xl font-bold text-black uppercase">My Orders</StyledText>
+        <StyledView className="flex-row items-center justify-between mb-4">
+        <Link href="/tabs/home">
+            <Ionicons name="arrow-back" size={24} color="black" />
+          </Link>
+          <StyledText className="text-xl font-bold text-black">My Orders</StyledText>
+          <Ionicons name="search-outline" size={24} color="black" />
         </StyledView>
 
         {/* Tabs */}
