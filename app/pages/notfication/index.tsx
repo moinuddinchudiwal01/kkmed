@@ -1,9 +1,15 @@
-import { StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { notifications } from 'data/notification';
 import { Link } from 'expo-router';
+import { styled } from 'nativewind';
 import React from 'react';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+const StyledView = styled(View);
+const StyledText = styled(Text);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledScrollView = styled(ScrollView);
 
 const Notification = () => {
   return (

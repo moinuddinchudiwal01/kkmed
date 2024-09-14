@@ -1,16 +1,26 @@
-import { StyledImage, StyledScrollView, StyledText, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { styled } from 'nativewind';
 import React from 'react';
+import { Image, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Link } from 'expo-router';
 
+const StyledView = styled(View);
+const StyledText = styled(Text);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledScrollView = styled(ScrollView);
+const StyledImage = styled(Image);
 
 export default function UploadPrescriptionScreen() {
   return (
     <SafeAreaView>
       <StyledScrollView className='px-4 py-2 bg-white'>
         {/* Header */}
-        <StyledView className="flex-row items-center justify-center mb-4 px-4 py-2 bg-white">
-          <StyledText className="ml-2 text-xl font-bold text-black uppercase">UPLOAD PRESCRIPTION</StyledText>
+        <StyledView className="flex-row items-center mb-4 px-4 py-2 bg-white">
+        <Link href="/tabs/home">
+            <Ionicons name="arrow-back" size={24} color="black" />
+          </Link>
+          <StyledText className="ml-2 text-xl font-bold text-black">UPLOAD PRESCRIPTION</StyledText>
         </StyledView>
 
         {/* Discount Banner */}
