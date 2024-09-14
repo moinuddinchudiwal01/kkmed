@@ -1,7 +1,3 @@
-import React from 'react';
+import HomeScreen from './home';
 
-const Customer = () => {
-  return <div>Customer</div>;
-};
-
-export default Customer;
+export default HomeScreen;
