@@ -1,18 +1,18 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getAsyncStorageItem } from 'core/utils/utils';
 import { Stack, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import SplashScreen from './SplashScreen';
 
-export default function RootLayout() {
+const RootLayout = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMounted(true);
 
     const checkToken = async () => {
-      const token = await AsyncStorage.getItem('userToken');
+      const token = await getAsyncStorageItem('userToken');
       if (isMounted) {
         if (token) {
           router.replace('/tabs/home');
@@ -41,4 +41,6 @@ export default function RootLayout() {
       <Stack.Screen name="tabs" options={{ headerShown: false }} />
     </Stack>
   );
-}
+};
+
+export default RootLayout;

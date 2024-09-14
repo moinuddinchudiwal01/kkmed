@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
+    './app/**/*.{js,jsx,ts,tsx}',
     './App.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
   ],
@@ -20,8 +20,8 @@ module.exports = {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
       },
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        128: '32rem',
+        144: '36rem',
       },
       borderRadius: {
         '4xl': '2rem',
@@ -29,4 +29,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
