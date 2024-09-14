@@ -26,5 +26,9 @@
     "node_modules": false,
     "ios/build": true,
     "android/app/build": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   }
 }

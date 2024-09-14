@@ -12,7 +12,9 @@ module.exports = {
         secondary: '#1d212d',
         accent: '#c7f4c2',
         lightPurple:"#d7d0ff",
-        darkPurple:"#5f48e6"
+        darkPurple:"#5f48e6",
+        lightGreen:"#94ddc0",
+        darkGreen:"#0c1b0d"
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
