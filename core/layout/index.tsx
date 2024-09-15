@@ -13,27 +13,22 @@ const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
       headerShown: false,
-      tabBarIcon: ({ focused, color, size }) => {
+      tabBarIcon: ({ focused, color }) => {
         const iconName = getIconName(route.name, focused);
-        return <Ionicons name={iconName as any} size={size} color={color} />;
+        return <Ionicons name={iconName as any} size={30} color={color} />;
       },
-      tabBarActiveTintColor: '#00ACC1',
+      tabBarActiveTintColor: '#0c1b0d',
       tabBarInactiveTintColor: '#8e8e93',
       tabBarLabelStyle: {
         fontSize: 12,
       },
       tabBarStyle: {
         backgroundColor: '#ffffff',
-        borderRadius: 30,
-        height: 70,
+        height: 65,
         position: 'absolute',
-        bottom: 10,
-        marginHorizontal: 20,
-        paddingBottom: 10,
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowOffset: { width: 0, height: 4 },
-        elevation: 10,
+        bottom:0,
+        paddingVertical: 10,
+        paddingBottom:5,
       },
     })}
   >
