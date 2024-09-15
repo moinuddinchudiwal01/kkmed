@@ -1,7 +1,7 @@
 import { getAsyncStorageItem } from 'core/utils/utils';
 import { Stack, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import SplashScreen from './SplashScreen';
+import SplashScreen from '../components/SplashScreen';
 
 const RootLayout = () => {
   const router = useRouter();
@@ -12,9 +12,13 @@ const RootLayout = () => {
     setIsMounted(true);
 
     const checkToken = async () => {
-      const token = await getAsyncStorageItem('userToken');
+      const token = await getAsyncStorageItem('userToken') || '1';
+      const userType = await getAsyncStorageItem('userType') || 'customer';
       if (isMounted) {
         if (token) {
+          if (userType === 'customer') {
+            router.replace('/tabs/home');
+          }
           router.replace('/tabs/home');
         } else {
           router.replace('/auth/login');

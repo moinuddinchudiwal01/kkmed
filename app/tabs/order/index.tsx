@@ -1,9 +1,9 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Link } from 'expo-router';
 import { styled } from 'nativewind';
 import React, { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Link } from 'expo-router';
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
@@ -15,7 +15,7 @@ export default function OrderScreen() {
 
   return (
     <SafeAreaView>
-      <StyledScrollView className="bg-white px-4 py-2">
+      <StyledScrollView className="bg-white">
         {/* Header */}
         <StyledView className="flex-row items-center justify-between mb-4">
         <Link href="/tabs/home">
@@ -41,7 +41,7 @@ export default function OrderScreen() {
         </StyledView>
 
         {/* Order List */}
-        {[1, 2, 3].map((order, index) => (
+        {[1, 2, 3].map((_order, index) => (
           <StyledView key={index} className="bg-white p-4 mb-4 rounded-lg shadow-md">
             <StyledView className="flex-row justify-between mb-2">
               <StyledText className="text-black text-lg font-bold">Order №1947034</StyledText>

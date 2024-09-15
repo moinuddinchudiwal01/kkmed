@@ -2,12 +2,13 @@
 module.exports = {
   content: [
     './app/**/*.{js,jsx,ts,tsx}',
-    './App.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
+    './modules/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
       colors: {
+        white:"#ffffff",
         primary: '#1DA1F2',
         secondary: '#1d212d',
         accent: '#c7f4c2',

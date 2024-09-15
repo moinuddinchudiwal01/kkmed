@@ -1,5 +1,5 @@
-import cartIcon from './collections/CartIcon';
+// import CartIcon from './collections/CartIcon';
+import NotificationIcon from './collections/NotificationIcon';
 import SearchIcon from './collections/SearchIcon';
-
-export { SearchIcon, cartIcon };
+export { NotificationIcon, SearchIcon };
 
