@@ -6,7 +6,6 @@ import HomeScreen from '../../app/tabs/home';
 import OrderScreen from '../../app/tabs/order';
 import ProfileScreen from '../../app/tabs/profile';
 import UploadPrescriptionScreen from '../../app/tabs/upload';
-
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
