@@ -17,20 +17,19 @@ export default function HomeScreen() {
     <StyledScrollView className='bg-white'>
       {/* Header Section */}
       <StyledView className="flex-row justify-between gap-2 items-center px-4 py-2 bg-white">
-        <Ionicons name="search-outline" size={32} color="gray" style={{position: 'absolute', left: 20 , top: 19}} />
         <StyledTextInput
           placeholder="Search meds or..."
-          className="text-gray-700 w-[75%] border-gray-400 border p-3 rounded-xl text-lg" style={{paddingLeft: 40}}
+          className="text-gray-700 w-[75%] border-gray-300 border p-3 rounded-xl text-lg" style={{paddingLeft: 13}}
         />
         <StyledTouchableOpacity className="relative flex flex-row ">
         <StyledView className="absolute top-0 left-3 w-6 h-6 z-10 bg-red-600 rounded-full flex items-center justify-center">
             <StyledText className="text-white text-sm">5</StyledText>
           </StyledView>
           <Link href={'/pages/notfication'}>
-            <Ionicons name="notifications-outline" size={40} color="gray" />
+            <Ionicons name="notifications-outline" size={40} color="#6b7280" />
           </Link>
           <Link href={'/pages/cart'}>
-            <Ionicons name="cart-outline" size={40} color="gray" />
+            <Ionicons name="cart-outline" size={40} color="#6b7280" />
           </Link>
           <StyledView className="absolute top-0 right-0 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
             <StyledText className="text-white text-sm">2</StyledText>
@@ -39,7 +38,7 @@ export default function HomeScreen() {
       </StyledView>
       {/* track your order */}
       <StyledView className='px-4 py-2 relative mt-1'>
-        <StyledImage source={b1} className="w-full h-36 rounded-lg" />
+        <StyledImage source={b1} className="w-full h-36 max-[390px]:h-32 rounded-lg" />
         <StyledView className="absolute top-1 left-10 flex flex-col text-white">
           <StyledText className="text-white font-bold text-lg mt-3">
             Track your meds!
@@ -61,7 +60,7 @@ export default function HomeScreen() {
     </StyledView>
       {/* Promotional Banner */}
       <StyledView className="mt-4 px-4">
-        <StyledImage source={banner} className="w-full h-36 rounded-lg" />
+        <StyledImage source={banner} className="w-full h-36 rounded-lg max-[390px]:h-32" />
       </StyledView>
 
       {/* Products Section */}
