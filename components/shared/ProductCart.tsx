@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyledImage, StyledTouchableOpacity, StyledText, StyledView } from "./StyledComponents";
+import {
+  StyledImage,
+  StyledTouchableOpacity,
+  StyledText,
+  StyledView,
+  StyledPressable,
+} from './StyledComponents';
+import { Ionicons } from '@expo/vector-icons';
 interface ProductProps {
   name: string;
   price: string;
@@ -7,16 +14,42 @@ interface ProductProps {
   imageUrl: string;
 }
 
-const ProductCard: React.FC<ProductProps> = ({ name, price, originalPrice, imageUrl }) => {
+const ProductCard: React.FC<ProductProps> = ({
+  name,
+  price,
+  originalPrice,
+  imageUrl,
+}) => {
+  let orginalName = name;
+  if (orginalName.length > 18) {
+    orginalName = orginalName.substring(0, 18) + '...';
+  }
   return (
-    <StyledTouchableOpacity className="m-2 bg-white rounded-lg shadow-md shadow-black">
-      <StyledImage source={{ uri: imageUrl }} className="h-36 w-40 rounded-t-lg" />
-      <StyledText className="text-sm px-2 pt-2">{name}</StyledText>
-      <StyledView className='flex-row items-center'>
-      <StyledText className="text-base font-bold px-2">₹{price}</StyledText>
-      <StyledText className="text-sm bg-highlighted text-center text-white font-bold px-2 rounded-lg">50%</StyledText>
+    <StyledTouchableOpacity className='m-2 bg-white w-36 pb-1 rounded-lg shadow-lg shadow-black'>
+      <StyledImage
+        source={{ uri: imageUrl }}
+        className='h-24 w-36 rounded-t-lg'
+      />
+      <StyledView className='absolute top-2 right-2'>
+        <Ionicons name='heart-outline' size={28} color='black' />
       </StyledView>
-      <StyledText className="text-xs line-through px-2 pb-2">₹{originalPrice}</StyledText>
+      <StyledText className='text-sm font-bold px-2 pt-2'>
+        {orginalName}
+      </StyledText>
+      <StyledView className='flex-row items-center'>
+        <StyledText className='text-base font-bold px-2'>₹{price}</StyledText>
+        <StyledText className='text-sm bg-highlighted text-center text-white font-bold px-2 rounded-lg'>
+          50%
+        </StyledText>
+      </StyledView>
+      <StyledView className='flex-row items-center justify-between pr-1'>
+        <StyledText className='text-sm line-through px-2'>
+          ₹{originalPrice}
+        </StyledText>
+        <StyledPressable className='self-end'>
+          <Ionicons size={30} color='black' name='bag-add-outline' />
+        </StyledPressable>
+      </StyledView>
     </StyledTouchableOpacity>
   );
 };

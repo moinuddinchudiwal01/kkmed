@@ -2,7 +2,7 @@ import Button from '@components/button';
 import Header from '@components/header';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ROUTES } from 'core/utils/routes';
-import { cartItems } from 'data/cartData';
+import { cartItems } from 'data/cartdata';
 import { router } from 'expo-router';
 import { styled } from 'nativewind';
 import React from 'react';
@@ -20,7 +20,7 @@ const Cart = () => {
       <Header
         className='cart_header'
         title='Your Cart'
-        backUrl={ROUTES.CUSTOMER.HOME}
+        backUrl={ROUTES.CUSTOMER.TABS.HOME}
       >
         <StyledTouchableOpacity className='relative flex flex-row bg-white'>
           <Ionicons name='cart-outline' size={40} />
@@ -121,7 +121,7 @@ const Cart = () => {
 
       <Button
         title='Place Order'
-        onPress={() => router.push('/pages/checkout')}
+        onPress={() => router.push(`${ROUTES.CUSTOMER.PAGES.HOME.CHECKOUT}`)}
       />
     </StyledScrollView>
   );
