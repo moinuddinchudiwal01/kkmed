@@ -7,19 +7,30 @@ interface HeaderProps {
   title: string;
   backUrl?: string;
   children?: ReactNode;
+  className?: string;
 }
 
-const Header = (props: HeaderProps) => {
+const Header = ({ title, backUrl, children, className }: HeaderProps) => {
   return (
-    <StyledView className="flex-row items-center justify-center relative mb-8 mt-2">
-      <Link href={props.backUrl as any} className="absolute left-0">
-        <Ionicons name="arrow-back" size={24} color="black" />
-      </Link>
-      <StyledText className="text-xl font-bold capitalize">{props.title}</StyledText>
+    <StyledView
+      className={`flex-row items-center justify-center relative p-4 bg-white ${
+        className
+      }`}
+    >
+      {/* Back Button */}
+      {backUrl && (
+        <Link href={backUrl as any} className='absolute left-0'>
+          <Ionicons name='chevron-back' size={24} color='black' />
+        </Link>
+      )}
 
-      {props.children && (
-        <StyledView className="absolute right-0">
-          {props.children}
+      {/* Title */}
+      <StyledText className='text-lg font-bold capitalize'>{title}</StyledText>
+
+      {/* Additional Elements */}
+      {children && (
+        <StyledView className='absolute right-0 flex flex-row items-center'>
+          {children}
         </StyledView>
       )}
     </StyledView>

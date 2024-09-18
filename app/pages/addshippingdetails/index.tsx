@@ -85,7 +85,7 @@ const AddShippingDetails = () => {
         </StyledView>
 
         {/* Save Address Button */}
-        <StyledTouchableOpacity className="bg-darkPurple py-4 rounded-lg mt-6">
+        <StyledTouchableOpacity className="bg-secondary py-4 rounded-lg mt-6">
           <StyledText className="text-center text-white font-semibold">SAVE ADDRESS</StyledText>
         </StyledTouchableOpacity>
       </StyledScrollView>

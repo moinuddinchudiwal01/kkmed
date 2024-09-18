@@ -1,5 +1,5 @@
 {
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "javascript.format.enable": false,
@@ -30,5 +30,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "always",
     "source.removeUnused.ts": "always",
+    "source.removeUnusedImports": "always"
   }
 }
