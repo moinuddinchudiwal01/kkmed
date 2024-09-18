@@ -17,15 +17,14 @@ import { category, concern, products } from 'data/homePageData';
 
 export default function HomeScreen() {
   return (
-    <StyledScrollView className='bg-white px-4 py-2'>
-      {/* Header Section */}
-      <StyledView className='flex-row justify-between gap-2 items-center bg-white'>
+    <StyledScrollView className='bg-gray-200 px-4 py-2'>
+      <StyledView className='flex-row justify-between gap-2 items-center'>
         <StyledTextInput
           placeholder='Search meds or...'
-          className='text-gray-700 w-[75%] border-gray-400 border p-3 rounded-xl text-lg'
+          className='text-gray-700 w-[75%] border-gray-400 bg-white border p-3 rounded-xl text-lg'
           style={{ paddingLeft: 13 }}
         />
-        <StyledTouchableOpacity className='relative flex flex-row '>
+        <StyledTouchableOpacity className='relative flex flex-row'>
           <StyledView className='absolute top-0 left-3 w-6 h-6 z-10 bg-red-600 rounded-full flex items-center justify-center'>
             <StyledText className='text-white text-sm'>5</StyledText>
           </StyledView>
@@ -41,7 +40,6 @@ export default function HomeScreen() {
         </StyledTouchableOpacity>
       </StyledView>
 
-      {/* Promotional Banner */}
       <StyledView className='mt-4 '>
         <StyledImage
           source={banner}
@@ -49,7 +47,6 @@ export default function HomeScreen() {
         />
       </StyledView>
 
-      {/* Category Section */}
       <StyledView className='mt-4 '>
         <StyledView className='flex-row justify-between items-center'>
           <StyledText className='text-xl font-bold mb-2 pl-2'>
@@ -58,16 +55,13 @@ export default function HomeScreen() {
           <Ionicons name='arrow-forward' size={24} color='black' />
         </StyledView>
       </StyledView>
-      {/* Category Cards */}
-      <StyledView className=''>
-        <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {category.map((product, index) => (
-            <CategoryCard key={index} {...product} />
-          ))}
-        </StyledScrollView>
-      </StyledView>
+      <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {category.map((product, index) => (
+          <CategoryCard key={index} {...product} />
+        ))}
+      </StyledScrollView>
 
-      <StyledView className='mt-4 '>
+      <StyledView className='mt-4'>
         <StyledView className='flex-row justify-between items-center'>
           <StyledText className='text-xl font-bold mb-2 pl-2'>
             New Products
@@ -75,14 +69,12 @@ export default function HomeScreen() {
           <Ionicons name='arrow-forward' size={24} color='black' />
         </StyledView>
       </StyledView>
-      {/* Product Cards */}
-      <StyledView className=''>
-        <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {products.map((product, index) => (
-            <ProductCart key={index} {...product} />
-          ))}
-        </StyledScrollView>
-      </StyledView>
+
+      <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {products.map((product, index) => (
+          <ProductCart key={index} {...product} />
+        ))}
+      </StyledScrollView>
 
       {/* Concern Section */}
       <StyledView className='mt-4'>
@@ -94,7 +86,7 @@ export default function HomeScreen() {
         </StyledView>
       </StyledView>
       {/* Concern Cards */}
-      <StyledView className='mb-20'>
+      <StyledView className='mb-24'>
         <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
           {concern.map((product, index) => (
             <ConcernCard key={index} {...product} />

@@ -14,18 +14,27 @@ interface ProductProps {
   imageUrl: string;
 }
 
-const ProductCard: React.FC<ProductProps> = ({ name, price, imageUrl }) => {
+const ProductCard: React.FC<ProductProps> = ({
+  name,
+  price,
+  originalPrice,
+  imageUrl,
+}) => {
+  let orginalName = name;
+  if (orginalName.length > 18) {
+    orginalName = orginalName.substring(0, 18) + '...';
+  }
   return (
-    <StyledTouchableOpacity className='m-2 bg-white w-36'>
+    <StyledTouchableOpacity className='m-2 bg-white w-36 pb-1 rounded-lg shadow-lg shadow-black'>
       <StyledImage
         source={{ uri: imageUrl }}
-        className='h-28 w-36 rounded-t-lg'
+        className='h-24 w-36 rounded-t-lg'
       />
       <StyledView className='absolute top-2 right-2'>
         <Ionicons name='heart-outline' size={28} color='black' />
       </StyledView>
-      <StyledText className='text-sm px-2 pt-2'>
-        {name.substring(0, 20)}
+      <StyledText className='text-sm font-bold px-2 pt-2'>
+        {orginalName}
       </StyledText>
       <StyledView className='flex-row items-center'>
         <StyledText className='text-base font-bold px-2'>₹{price}</StyledText>
@@ -33,11 +42,14 @@ const ProductCard: React.FC<ProductProps> = ({ name, price, imageUrl }) => {
           50%
         </StyledText>
       </StyledView>
-      <StyledPressable className='bg-secondary w-24 p-1  rounded-lg my-2'>
-        <StyledText className='text-sm text-center text-white'>
-          Add To Cart
+      <StyledView className='flex-row items-center justify-between pr-1'>
+        <StyledText className='text-sm line-through px-2'>
+          ₹{originalPrice}
         </StyledText>
-      </StyledPressable>
+        <StyledPressable className='self-end'>
+          <Ionicons size={30} color='black' name='bag-add-outline' />
+        </StyledPressable>
+      </StyledView>
     </StyledTouchableOpacity>
   );
 };

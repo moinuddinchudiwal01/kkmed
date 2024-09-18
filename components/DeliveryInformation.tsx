@@ -10,7 +10,7 @@ interface Props {
 }
 const DeliveryInformation = ({ onClose }: Props) => {
   return (
-    <StyledView className='p-3 bg-gray-200 rounded-t-3xl '>
+    <StyledView className='border-black border rounded-t-3xl p-1 '>
       <StyledView className='bg-white h-full rounded-xl p-5'>
         {/* Header */}
         <StyledView className='flex-row items-center justify-between gap-5 mb-4'>
@@ -40,11 +40,13 @@ const DeliveryInformation = ({ onClose }: Props) => {
             <StyledView className='bg-red-500 h-4 w-4 rounded-full mb-2' />
             <StyledView className='h-10 w-1 bg-gray-300' />
           </StyledView>
-          <StyledView className='ml-4'>
-            <StyledText className='text-sm font-bold text-gray-800'>
-              16 Jul
-            </StyledText>
-            <StyledText className='text-sm text-gray-500'>20:53</StyledText>
+          <StyledView className='ml-2'>
+            <StyledView className='flex flex-row gap-3'>
+              <StyledText className='text-sm font-bold text-gray-800'>
+                16 Jul
+              </StyledText>
+              <StyledText className='text-sm text-gray-500'>20:53</StyledText>
+            </StyledView>
             <StyledView className='bg-gray-100 p-3 rounded-md mt-2'>
               <StyledText className='text-sm font-bold text-black'>
                 Order delivered
@@ -59,11 +61,13 @@ const DeliveryInformation = ({ onClose }: Props) => {
             <StyledView className='bg-gray-300 h-4 w-4 rounded-full mb-2' />
             <StyledView className='h-10 w-1 bg-gray-300' />
           </StyledView>
-          <StyledView className='ml-4'>
-            <StyledText className='text-sm font-bold text-gray-800'>
-              16 Jul
-            </StyledText>
-            <StyledText className='text-sm text-gray-500'>19:57</StyledText>
+          <StyledView className='ml-2'>
+            <StyledView className='flex flex-row gap-3'>
+              <StyledText className='text-sm font-bold text-gray-800'>
+                16 Jul
+              </StyledText>
+              <StyledText className='text-sm text-gray-500'>19:57</StyledText>
+            </StyledView>
             <StyledView className='bg-gray-100 p-3 rounded-md mt-2'>
               <StyledText className='text-sm font-bold text-black'>
                 Order out for delivery
@@ -78,11 +82,13 @@ const DeliveryInformation = ({ onClose }: Props) => {
             <StyledView className='bg-gray-300 h-4 w-4 rounded-full mb-2' />
             <StyledView className='h-10 w-1 bg-gray-300' />
           </StyledView>
-          <StyledView className='ml-4'>
-            <StyledText className='text-sm font-bold text-gray-800'>
-              16 Jul
-            </StyledText>
-            <StyledText className='text-sm text-gray-500'>19:43</StyledText>
+          <StyledView className='ml-2'>
+            <StyledView className='flex flex-row gap-3'>
+              <StyledText className='text-sm font-bold text-gray-800'>
+                16 Jul
+              </StyledText>
+              <StyledText className='text-sm text-gray-500'>19:43</StyledText>
+            </StyledView>
             <StyledView className='bg-gray-100 p-3 rounded-md mt-2'>
               <StyledText className='text-sm font-bold text-black'>
                 Order received
