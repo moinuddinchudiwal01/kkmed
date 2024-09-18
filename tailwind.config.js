@@ -8,11 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        white:"#ffffff",
-        black:"#000000",
+        white: '#ffffff',
+        black: '#000000',
         primary: '#94ddc0',
         secondary: '#0c1b0d',
-        highlighted:"#dc2626"
+        highlighted: '#dc2626',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
