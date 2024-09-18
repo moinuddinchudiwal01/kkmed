@@ -2,71 +2,17 @@ import Button from '@components/button';
 import Header from '@components/header';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ROUTES } from 'core/utils/routes';
-import { Link, router } from 'expo-router';
+import { cartItems } from 'data/cartData';
+import { router } from 'expo-router';
 import { styled } from 'nativewind';
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View, Image } from 'react-native';
-
-const image3 = require('@assets/images/image3.png');
-const image4 = require('@assets/images/image4.png');
-const image5 = require('@assets/images/image5.png');
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledTouchableOpacity = styled(TouchableOpacity);
 const StyledScrollView = styled(ScrollView);
 const StyledImage = styled(Image);
-
-const cartItems = [
-  {
-    id: 1,
-    name: 'Sugar free gold',
-    description: 'bottle of 500 pellets',
-    price: 25,
-    quantity: 1,
-    image: image3,
-  },
-  {
-    id: 2,
-    name: 'Sugar free gold',
-    description: 'bottle of 500 pellets',
-    price: 18,
-    quantity: 1,
-    image: image4,
-  },
-  {
-    id: 3,
-    name: 'Sugar free gold',
-    description: 'bottle of 500 pellets',
-    price: 18,
-    quantity: 1,
-    image: image5,
-  },
-  {
-    id: 3,
-    name: 'Sugar free gold',
-    description: 'bottle of 500 pellets',
-    price: 18,
-    quantity: 1,
-    image: image5,
-  },
-  {
-    id: 3,
-    name: 'Sugar free gold',
-    description: 'bottle of 500 pellets',
-    price: 18,
-    quantity: 1,
-    image: image5,
-  },
-  {
-    id: 3,
-    name: 'Sugar free gold',
-    description: 'bottle of 500 pellets',
-    price: 18,
-    quantity: 1,
-    image: image5,
-  },
-];
 
 const Cart = () => {
   return (
@@ -77,51 +23,31 @@ const Cart = () => {
         backUrl={ROUTES.CUSTOMER.HOME}
       >
         <StyledTouchableOpacity className='relative flex flex-row bg-white'>
-          <Link href={'/pages/notfication'}>
-            <Ionicons name='cart-outline' size={40} />
-          </Link>
-          <StyledView className='absolute top-0 right-0 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center'>
-            <StyledText className='text-white text-sm'>2</StyledText>
+          <Ionicons name='cart-outline' size={40} />
+          <StyledView className='absolute top-0 right-0 w-5 h-5 bg-highlighted rounded-full flex items-center justify-center'>
+            <StyledText className='text-white text-sm'>{2}</StyledText>
           </StyledView>
         </StyledTouchableOpacity>
       </Header>
 
-      {/* Cart Items */}
-      <StyledView className='bg-gray-100 rounded-2xl px-4'>
+      <StyledView className='cart_items bg-gray-100 rounded-xl'>
         {cartItems?.map((item) => {
           return (
             <StyledView
               key={item.id}
               className='flex-row items-center justify-between border-b border-gray-200 py-4'
             >
-              {/* Product Image */}
-              <StyledView className='w-20 h-20 bg-white rounded-md'>
+              <StyledView className='product_image w-20 h-20 bg-white rounded-md'>
                 <StyledImage source={item.image} className='w-full h-full' />
               </StyledView>
 
-              {/* Product Info */}
-              <StyledView className=''>
+              <StyledView className='product_info'>
                 <StyledText className='font-semibold text-black mb-1'>
                   {item.name}
                 </StyledText>
                 <StyledText className='text-gray-500 text-xs'>
                   {item.description}
                 </StyledText>
-                <StyledText className='font-semibold text-lg text-black mt-2 bg-white'>
-                  Rs.{item.price}
-                </StyledText>
-              </StyledView>
-
-              {/* Container for item */}
-              <StyledView className='flex justify-between'>
-                {/* Remove Button */}
-                <StyledTouchableOpacity className='self-end mb-2'>
-                  <Ionicons
-                    name='close-circle-outline'
-                    size={20}
-                    color='gray'
-                  ></Ionicons>
-                </StyledTouchableOpacity>
 
                 {/* Quantity Controls at the bottom */}
                 <StyledView className='flex-row justify-center items-center mt-4'>
@@ -135,6 +61,21 @@ const Cart = () => {
                     <Ionicons name='add' size={20} color='blue' />
                   </StyledTouchableOpacity>
                 </StyledView>
+              </StyledView>
+
+              {/* Container for item */}
+              <StyledView className='flex justify-between'>
+                {/* Remove Button */}
+                <StyledTouchableOpacity className='self-end mb-2'>
+                  <Ionicons
+                    name='close-circle-outline'
+                    size={20}
+                    color='gray'
+                  ></Ionicons>
+                </StyledTouchableOpacity>
+                <StyledText className='font-semibold text-lg text-black mt-2 bg-white'>
+                  Rs.{item.price}
+                </StyledText>
               </StyledView>
             </StyledView>
           );
