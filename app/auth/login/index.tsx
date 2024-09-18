@@ -23,7 +23,7 @@ const LoginScreen = () => {
               <StyledImage source={require('../../../assets/images/splash.png')} className="w-full h-32 rounded-2xl" />
               <StyledText className="text-base font-bold text-center">Enter Your Phone Number</StyledText>
               <StyledTextInput
-              className="border border-darkGreen p-3 rounded-lg"
+              className="border border-secondary p-3 rounded-lg"
               placeholder="Enter Your Phone Number"
               keyboardType="numeric"
               onChangeText={text => setPhoneNo(text)}
@@ -32,7 +32,7 @@ const LoginScreen = () => {
             />
             </StyledView>
           
-            <StyledTouchableOpacity onPress={handleLogin} className="bg-darkGreen py-4 rounded-lg mt-6">
+            <StyledTouchableOpacity onPress={handleLogin} className="bg-secondary py-4 rounded-lg mt-6">
               <StyledText className="text-center text-white font-semibold">Let Me In</StyledText>
             </StyledTouchableOpacity>
           </StyledView>

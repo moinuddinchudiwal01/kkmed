@@ -61,7 +61,7 @@ export default function OrderScreen() {
         </StyledView>
 
         {/* Order Delivered Banner */}
-        <StyledView className="bg-lightPurple p-4 rounded-md mb-4">
+        <StyledView className="bg-primary p-4 rounded-md mb-4">
           <StyledText className="text-lg font-bold text-black">Order delivered!</StyledText>
           <StyledText className="text-sm text-gray-500">
             Please ensure that the safety sticker is untouched.
@@ -141,7 +141,7 @@ export default function OrderScreen() {
         </StyledView>
 
         {/* Buy Again Button */}
-        <StyledTouchableOpacity className="bg-darkPurple rounded-md py-3">
+        <StyledTouchableOpacity className="bg-secondary rounded-md py-3">
           <StyledText className="text-center text-white text-base font-bold">BUY AGAIN</StyledText>
         </StyledTouchableOpacity>
 
