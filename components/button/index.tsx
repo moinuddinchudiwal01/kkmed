@@ -13,7 +13,7 @@ interface ButtonProps {
 const Button = ({ title, onPress, className = '' }: ButtonProps) => {
   return (
     <StyledTouchableOpacity
-      className={`rounded-lg py-3 my-4 bg-blue-600 ${className}`}
+      className={`rounded-lg py-3 my-4 bg-secondary ${className}`}
       onPress={onPress}
     >
       <StyledText className='text-center text-lg font-bold text-white capitalize'>

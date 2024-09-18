@@ -12,68 +12,19 @@ import React from 'react';
 import banner from '@assets/images/Banner.png';
 import ProductCart from '@components/shared/ProductCart';
 import CategoryCard from '@components/shared/CategoryCard';
+import ConcernCard from '@components/shared/ConcernCard';
+import { category, concern, products } from 'data/homePageData';
 
-const products = [
-  {
-    name: 'Fish Oil 1000 (30pcs)',
-    price: '75.000',
-    originalPrice: '150.000',
-    imageUrl:
-      'https://hips.hearstapps.com/hmg-prod/images/gettyimages-907329974-1661963045.jpg',
-  },
-  {
-    name: 'Ibuprofen 250mg',
-    price: '12.000',
-    originalPrice: '24.000',
-    imageUrl:
-      'https://5.imimg.com/data5/SELLER/Default/2023/6/319597573/MH/NE/SR/135658020/ibuprofen-400-mg-bp-tablets.jpg',
-  },
-  {
-    name: 'Fish Oil 1000 (30pcs)',
-    price: '75.000',
-    originalPrice: '150.000',
-    imageUrl:
-      'https://hips.hearstapps.com/hmg-prod/images/gettyimages-907329974-1661963045.jpg',
-  },
-  {
-    name: 'Ibuprofen 250mg',
-    price: '12.000',
-    originalPrice: '24.000',
-    imageUrl:
-      'https://5.imimg.com/data5/SELLER/Default/2023/6/319597573/MH/NE/SR/135658020/ibuprofen-400-mg-bp-tablets.jpg',
-  },
-];
-
-const category = [
-  {
-    name: 'medicine',
-    imageUrl:
-      'https://i.pinimg.com/564x/68/54/89/6854895b4e52be9c4e6484eb224b7639.jpg',
-  },
-  {
-    name: 'healthCare',
-    imageUrl: 'https://cdn-icons-png.flaticon.com/512/5759/5759421.png',
-  },
-  {
-    name: 'insulin',
-    imageUrl: 'https://cdn-icons-png.flaticon.com/512/8730/8730868.png',
-  },
-  {
-    name: 'skinCare',
-    imageUrl: 'https://cdn-icons-png.flaticon.com/512/4192/4192598.png',
-  },
-];
 export default function HomeScreen() {
   return (
-    <StyledScrollView className='bg-white px-4 py-2'>
-      {/* Header Section */}
-      <StyledView className='flex-row justify-between gap-2 items-center bg-white'>
+    <StyledScrollView className='bg-gray-200 px-4 py-2'>
+      <StyledView className='flex-row justify-between gap-2 items-center'>
         <StyledTextInput
           placeholder='Search meds or...'
-          className='text-gray-700 w-[75%] border-gray-400 border p-3 rounded-xl text-lg'
+          className='text-gray-700 w-[75%] border-gray-400 bg-white border p-3 rounded-xl text-lg'
           style={{ paddingLeft: 13 }}
         />
-        <StyledTouchableOpacity className='relative flex flex-row '>
+        <StyledTouchableOpacity className='relative flex flex-row'>
           <StyledView className='absolute top-0 left-3 w-6 h-6 z-10 bg-red-600 rounded-full flex items-center justify-center'>
             <StyledText className='text-white text-sm'>5</StyledText>
           </StyledView>
@@ -89,7 +40,6 @@ export default function HomeScreen() {
         </StyledTouchableOpacity>
       </StyledView>
 
-      {/* Promotional Banner */}
       <StyledView className='mt-4 '>
         <StyledImage
           source={banner}
@@ -97,7 +47,6 @@ export default function HomeScreen() {
         />
       </StyledView>
 
-      {/* Category Section */}
       <StyledView className='mt-4 '>
         <StyledView className='flex-row justify-between items-center'>
           <StyledText className='text-xl font-bold mb-2 pl-2'>
@@ -106,15 +55,13 @@ export default function HomeScreen() {
           <Ionicons name='arrow-forward' size={24} color='black' />
         </StyledView>
       </StyledView>
-      {/* Product Cards */}
-      <StyledView className=''>
-        <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {category.map((product, index) => (
-            <CategoryCard key={index} {...product} />
-          ))}
-        </StyledScrollView>
-      </StyledView>
-      <StyledView className='mt-4 '>
+      <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {category.map((product, index) => (
+          <CategoryCard key={index} {...product} />
+        ))}
+      </StyledScrollView>
+
+      <StyledView className='mt-4'>
         <StyledView className='flex-row justify-between items-center'>
           <StyledText className='text-xl font-bold mb-2 pl-2'>
             New Products
@@ -122,11 +69,27 @@ export default function HomeScreen() {
           <Ionicons name='arrow-forward' size={24} color='black' />
         </StyledView>
       </StyledView>
-      {/* Product Cards */}
-      <StyledView className=''>
+
+      <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {products.map((product, index) => (
+          <ProductCart key={index} {...product} />
+        ))}
+      </StyledScrollView>
+
+      {/* Concern Section */}
+      <StyledView className='mt-4'>
+        <StyledView className='flex-row justify-between items-center'>
+          <StyledText className='text-xl font-bold mb-2 pl-2'>
+            Shop By Concern
+          </StyledText>
+          <Ionicons name='arrow-forward' size={24} color='black' />
+        </StyledView>
+      </StyledView>
+      {/* Concern Cards */}
+      <StyledView className='mb-24'>
         <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {products.map((product, index) => (
-            <ProductCart key={index} {...product} />
+          {concern.map((product, index) => (
+            <ConcernCard key={index} {...product} />
           ))}
         </StyledScrollView>
       </StyledView>
