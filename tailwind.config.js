@@ -9,13 +9,10 @@ module.exports = {
     extend: {
       colors: {
         white:"#ffffff",
-        primary: '#1DA1F2',
-        secondary: '#1d212d',
-        accent: '#c7f4c2',
-        lightPurple:"#d7d0ff",
-        darkPurple:"#5f48e6",
-        lightGreen:"#94ddc0",
-        darkGreen:"#0c1b0d"
+        black:"#000000",
+        primary: '#94ddc0',
+        secondary: '#0c1b0d',
+        highlighted:"#dc2626"
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],

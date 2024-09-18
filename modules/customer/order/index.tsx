@@ -1,12 +1,6 @@
+import { StyledScrollView, StyledText, StyledTouchableOpacity, StyledPressable, StyledView } from '@components/shared/StyledComponents';
 import { Link } from 'expo-router';
-import { styled } from 'nativewind';
 import React, { useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-
-const StyledView = styled(View);
-const StyledText = styled(Text);
-const StyledTouchableOpacity = styled(TouchableOpacity);
-const StyledScrollView = styled(ScrollView);
 
 const OrderScreen =() => {
   const [activeTab, setActiveTab] = useState('Delivered');
@@ -21,7 +15,7 @@ const OrderScreen =() => {
         {/* Tabs */}
         <StyledView className="flex-row justify-around mb-2">
           {['Delivered', 'Processing', 'Cancelled'].map((tab) => (
-            <StyledTouchableOpacity
+            <StyledPressable
               key={tab}
               onPress={() => setActiveTab(tab)}
               className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-black' : 'bg-transparent'}`}
@@ -29,7 +23,7 @@ const OrderScreen =() => {
               <StyledText className={`${activeTab === tab ? 'text-white' : 'text-black'}`}>
                 {tab}
               </StyledText>
-            </StyledTouchableOpacity>
+            </StyledPressable>
           ))}
         </StyledView>
 

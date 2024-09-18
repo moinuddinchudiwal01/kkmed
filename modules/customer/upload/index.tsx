@@ -16,16 +16,10 @@ export default function UploadPrescriptionScreen() {
         <StyledView className="flex-row items-center mb-4 px-4 py-2 bg-white">
           <StyledText className="ml-2 text-xl font-bold text-black">UPLOAD PRESCRIPTION</StyledText>
         </StyledView>
-
-        {/* Discount Banner */}
-        <StyledView className="bg-lightPurple rounded-lg p-4 mb-4">
-          <StyledText className="text-black font-bold">Flat <StyledText className="text-blue-500">15% off*</StyledText> on Medicine Order</StyledText>
-        </StyledView>
-
         {/* Upload Section */}
-        <StyledText className="text-lg font-semibold text-black mb-2">Have a Prescription?</StyledText>
-        <StyledTouchableOpacity className="bg-green-500 rounded-lg p-4 mb-4">
-          <StyledText className="text-white text-center font-bold">UPLOAD PRESCRIPTION</StyledText>
+        <StyledText className="text-lg font-semibold text-secondary mb-2">Have a Prescription?</StyledText>
+        <StyledTouchableOpacity className="bg-primary rounded-lg p-4 mb-4">
+          <StyledText className="text-secondary text-center font-bold">UPLOAD PRESCRIPTION</StyledText>
         </StyledTouchableOpacity>
 
         {/* Information Section */}

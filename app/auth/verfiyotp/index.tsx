@@ -46,7 +46,7 @@ const LoginScreen = () => {
           {Object.values(refs).map((ref, index) => (
             <StyledTextInput
               ref={ref}
-              className="border border-darkGreen p-3 w-12 text-center rounded-lg"
+              className="border border-secondary p-3 w-12 text-center rounded-lg"
               keyboardType="numeric"
               onChangeText={(text) => handleOtpChange(text, index)}
               onKeyPress={(event) => handleKeyPress(event, index)}
@@ -57,7 +57,7 @@ const LoginScreen = () => {
           ))}
         </StyledView>
           </StyledView>
-        <StyledTouchableOpacity className="mt-5 bg-darkGreen p-2.5 rounded-md">
+        <StyledTouchableOpacity className="mt-5 bg-secondary p-2.5 rounded-md">
           <StyledText className="text-center text-white font-bold">Verify Otp</StyledText>
           </StyledTouchableOpacity>
         </StyledView>
