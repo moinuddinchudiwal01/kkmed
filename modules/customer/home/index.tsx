@@ -5,6 +5,7 @@ import React from 'react';
 import banner from '@assets/images/Banner.png';
 import ProductCart from '@components/shared/ProductCart';
 import CategoryCard from '@components/shared/CategoryCard';
+import ConcernCard from '@components/shared/ConcernCard';
 
 const products = [
   { name: 'Fish Oil 1000 (30pcs)', price: '75.000', originalPrice: '150.000', imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/gettyimages-907329974-1661963045.jpg' },
@@ -18,6 +19,12 @@ const category = [
   { name: 'healthCare', imageUrl: 'https://cdn-icons-png.flaticon.com/512/5759/5759421.png' },
   { name: 'insulin', imageUrl: 'https://cdn-icons-png.flaticon.com/512/8730/8730868.png' },
   { name: 'skinCare', imageUrl: 'https://cdn-icons-png.flaticon.com/512/4192/4192598.png' },
+]
+const concern = [
+  { name: 'diabetic care', imageUrl: 'https://sanchetihospital.org/wp-content/uploads/2018/08/diabetes-clinic.jpg' },
+  { name: 'skin care', imageUrl: 'https://www.yesmadam.com/blog/wp-content/uploads/2022/08/EYE-CREAM-min.jpg' },
+  { name: 'stomach & liver care', imageUrl: 'https://www.divyanursinghome.in/wp-content/uploads/2023/06/gastro.jpg' },
+  { name: 'heart care', imageUrl: 'https://h2hcardiaccenter.com/blog/wp-content/uploads/2018/05/heart-care.jpg' },
 ]
 export default function HomeScreen() {
   return (
@@ -56,7 +63,7 @@ export default function HomeScreen() {
           <Ionicons name="arrow-forward" size={24} color="black" />
         </StyledView>
       </StyledView>
-      {/* Product Cards */}
+      {/* Category Cards */}
       <StyledView className="">
       <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
         {category.map((product, index) => (
@@ -64,6 +71,7 @@ export default function HomeScreen() {
         ))}
       </StyledScrollView>
       </StyledView>
+
       <StyledView className="mt-4 ">
         <StyledView className="flex-row justify-between items-center">
           <StyledText className="text-xl font-bold mb-2 pl-2">New Products</StyledText>
@@ -78,6 +86,23 @@ export default function HomeScreen() {
         ))}
       </StyledScrollView>
       </StyledView>
+
+     {/* Concern Section */}
+      <StyledView className="mt-4">
+        <StyledView className="flex-row justify-between items-center">
+          <StyledText className="text-xl font-bold mb-2 pl-2">Shop By Concern</StyledText>
+          <Ionicons name="arrow-forward" size={24} color="black" />
+        </StyledView>
+      </StyledView>
+      {/* Concern Cards */}
+      <StyledView className="mb-20">
+      <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {concern.map((product, index) => (
+          <ConcernCard key={index} {...product} />
+        ))}
+      </StyledScrollView>
+      </StyledView>
+
     </StyledScrollView>
   );
 }

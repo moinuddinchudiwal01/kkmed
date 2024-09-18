@@ -11,7 +11,7 @@ const CategoryCard: React.FC<CategoryProps> = ({ name,imageUrl }) => {
       <StyledView className='w-[110px] p-2 border border-gray-400 rounded-lg'>
       <StyledImage source={{ uri: imageUrl }} className="h-24 object-cover" />
       </StyledView>
-      <StyledText className="text-base uppercase font-bold text-center px-2 pt-2">{name}</StyledText>
+      <StyledText className="text-base capitalize font-bold text-center px-2 pt-2">{name}</StyledText>
     </StyledPressable>
   );
 };
