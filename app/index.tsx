@@ -12,8 +12,8 @@ const RootLayout = () => {
     setIsMounted(true);
 
     const checkToken = async () => {
-      const token = await getAsyncStorageItem('userToken') || '1';
-      const userType = await getAsyncStorageItem('userType') || 'customer';
+      const token = (await getAsyncStorageItem('userToken')) || '1';
+      const userType = (await getAsyncStorageItem('userType')) || 'customer';
       if (isMounted) {
         if (token) {
           if (userType === 'customer') {
@@ -28,7 +28,7 @@ const RootLayout = () => {
     };
 
     if (isLoading) {
-      setTimeout(() => { 
+      setTimeout(() => {
         checkToken();
       }, 1500);
     }
@@ -42,7 +42,7 @@ const RootLayout = () => {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="tabs" options={{ headerShown: false }} />
+      <Stack.Screen name='tabs' options={{ headerShown: false }} />
     </Stack>
   );
 };
