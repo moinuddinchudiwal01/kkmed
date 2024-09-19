@@ -14,6 +14,7 @@ import ProductCart from '@components/shared/ProductCart';
 import CategoryCard from '@components/shared/CategoryCard';
 import ConcernCard from '@components/shared/ConcernCard';
 import { category, concern, products } from 'data/homePageData';
+import { ROUTES } from 'core/utils/routes';
 
 export default function HomeScreen() {
   return (
@@ -28,7 +29,7 @@ export default function HomeScreen() {
           <StyledView className='absolute top-0 left-3 w-6 h-6 z-10 bg-red-600 rounded-full flex items-center justify-center'>
             <StyledText className='text-white text-sm'>5</StyledText>
           </StyledView>
-          <Link href={'/pages/notfication'}>
+          <Link href={ROUTES.CUSTOMER.PAGES.HOME.NOTIFICATION}>
             <Ionicons name='notifications-outline' size={40} color='#6b7280' />
           </Link>
           <Link href={'/pages/cart'}>

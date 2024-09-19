@@ -6,6 +6,7 @@ import {
   StyledPressable,
   StyledView,
 } from '@components/shared/StyledComponents';
+import { ROUTES } from 'core/utils/routes';
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
 
@@ -55,7 +56,13 @@ const OrderScreen = () => {
           </StyledView>
           <StyledView className='flex-row justify-between items-center'>
             <StyledTouchableOpacity className='border border-gray-500 rounded-full px-4 py-1 mt-2'>
-              <Link href={'/pages/orderdetail/1'}>details</Link>
+              <Link
+                href={
+                  `${ROUTES.CUSTOMER.PAGES.ORDERS.ORDERS_DETAILS}${'PID123'}` as any
+                }
+              >
+                details
+              </Link>
             </StyledTouchableOpacity>
             <StyledText className='text-green-600 font-bold text-lg'>
               Delivered

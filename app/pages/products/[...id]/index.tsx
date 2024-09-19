@@ -3,16 +3,19 @@ import {
   StyledText,
   StyledView,
 } from '@components/shared/StyledComponents';
+import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
 
-const ProductsPage = () => {
+const ProductDetails = () => {
+  const productId = useLocalSearchParams().id;
+
   return (
     <StyledScrollView>
       <StyledView>
-        <StyledText>products listing</StyledText>
+        <StyledText>products details {productId}</StyledText>
       </StyledView>
     </StyledScrollView>
   );
 };
 
-export default ProductsPage;
+export default ProductDetails;

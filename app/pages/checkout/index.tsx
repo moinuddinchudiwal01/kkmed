@@ -7,6 +7,7 @@ import {
   StyledView,
 } from '@components/shared/StyledComponents';
 import { Ionicons } from '@expo/vector-icons';
+import { ROUTES } from 'core/utils/routes';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -34,9 +35,9 @@ const Checkout = () => {
 
   return (
     <SafeAreaView>
-      <StyledScrollView className='px-4 py-2 bg-gray-100'>
+      <StyledScrollView className='px-4 py-2 bg-white'>
         {/* Header */}
-        <Header title='Checkout' backUrl='/pages/cart'>
+        <Header title='Checkout' backUrl={ROUTES.CUSTOMER.PAGES.HOME.CART}>
           <Ionicons name='cart' size={24} color='black' />
         </Header>
 

@@ -11,8 +11,9 @@ import {
   Easing,
 } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Link, router } from 'expo-router';
+import { router, Link, useLocalSearchParams } from 'expo-router';
 import DeliveryInformation from '@components/DeliveryInformation';
+import { ROUTES } from 'core/utils/routes';
 import Button from '@components/button';
 
 const StyledView = styled(View);
@@ -24,6 +25,7 @@ const StyledImage = styled(Image);
 export default function OrderScreen() {
   const [openDeliveryInformation, setOpenDeliveryInformation] = useState(false);
   const [slideAnim] = useState(new Animated.Value(300)); // Initial position of the modal
+  const orderDetailId = useLocalSearchParams().id;
 
   const toggleDeliveryInformation = () => {
     if (!openDeliveryInformation) {
@@ -52,11 +54,11 @@ export default function OrderScreen() {
     <StyledScrollView className='bg-gray-100 px-4 py-2 relative'>
       {/* Header */}
       <StyledView className='flex-row items-center justify-between mb-4'>
-        <Link href='/tabs/order'>
+        <Link href={ROUTES.CUSTOMER.TABS.ORDERS as any}>
           <Ionicons name='arrow-back' size={24} color='black' />
         </Link>
         <StyledText className='text-xl font-bold text-black'>
-          Order Details
+          Order Details {orderDetailId}
         </StyledText>
         <Ionicons name='ellipsis-vertical' size={24} color='black' />
       </StyledView>

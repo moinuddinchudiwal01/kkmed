@@ -23,7 +23,7 @@ const Cart = () => {
       <Header
         className='cart_header'
         title='Your Cart'
-        backUrl={ROUTES.CUSTOMER.HOME}
+        backUrl={ROUTES.CUSTOMER.TABS.HOME}
       >
         <StyledTouchableOpacity className='relative flex flex-row'>
           <Ionicons name='cart-outline' size={40} />
@@ -134,7 +134,7 @@ const Cart = () => {
       </StyledView>
       <Button
         title='Place Order'
-        onPress={() => router.push('/pages/checkout')}
+        onPress={() => router.push(`${ROUTES.CUSTOMER.PAGES.HOME.CHECKOUT}`)}
       />
     </StyledScrollView>
   );
