@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductProps> = ({
     orginalName = orginalName.substring(0, 18) + '...';
   }
   return (
-    <StyledTouchableOpacity className='m-2 bg-white w-36 pb-1 rounded-lg shadow-lg shadow-black'>
+    <StyledTouchableOpacity className='m-2 bg-white w-36 pb-1 rounded-lg shadow-lg shadow-gray-500'>
       <StyledImage
         source={{ uri: imageUrl }}
         className='h-24 w-36 rounded-t-lg'

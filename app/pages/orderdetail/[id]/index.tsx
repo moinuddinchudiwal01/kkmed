@@ -11,8 +11,9 @@ import {
   Easing,
 } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import DeliveryInformation from '@components/DeliveryInformation';
+import Button from '@components/button';
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
@@ -48,10 +49,10 @@ export default function OrderScreen() {
   };
 
   return (
-    <StyledScrollView className='bg-white px-4 py-2 relative'>
+    <StyledScrollView className='bg-gray-100 px-4 py-2 relative'>
       {/* Header */}
       <StyledView className='flex-row items-center justify-between mb-4'>
-        <Link href='/tabs/home'>
+        <Link href='/tabs/order'>
           <Ionicons name='arrow-back' size={24} color='black' />
         </Link>
         <StyledText className='text-xl font-bold text-black'>
@@ -60,48 +61,40 @@ export default function OrderScreen() {
         <Ionicons name='ellipsis-vertical' size={24} color='black' />
       </StyledView>
 
-      {/* Order Delivered Banner */}
-      <StyledView className='bg-primary p-4 rounded-md mb-4'>
-        <StyledText className='text-lg font-bold text-black'>
-          Order delivered!
-        </StyledText>
-        <StyledText className='text-sm text-gray-500'>
-          Please ensure that the safety sticker is untouched.
-        </StyledText>
-      </StyledView>
-
-      {/* Customer Info */}
-      <StyledView className='mb-4'>
-        <StyledText className='text-base font-bold text-black capitalize'>
-          Kasim Kadiwala
-        </StyledText>
-        <StyledText className='text-sm text-gray-500 capitalize'>
-          Sidhpur, Rasulpur - 384290
-        </StyledText>
-      </StyledView>
-
-      {/* Delivery Info */}
-      <StyledView className='flex-row items-center justify-between gap-2 mb-4'>
-        <StyledView className='flex-row items-center gap-2'>
-          <Ionicons name='checkmark-circle-outline' size={24} color='green' />
-          <StyledText className='text-sm text-gray-500'>
-            Delivered on 29.06.2022, 5:30 PM
+      <StyledView className='flex flex-col bg-white rounded-xl my-1 py-4 px-3 shadow-md'>
+        {/* Customer Info */}
+        <StyledView className='mb-4'>
+          <StyledText className='text-base font-bold text-black capitalize'>
+            Kasim Kadiwala
+          </StyledText>
+          <StyledText className='text-sm text-gray-500 capitalize'>
+            Sidhpur, Rasulpur - 384290
           </StyledText>
         </StyledView>
-        <StyledTouchableOpacity onPress={toggleDeliveryInformation}>
-          <Ionicons name='chevron-forward-outline' size={24} color='gray' />
-        </StyledTouchableOpacity>
+
+        {/* Delivery Info */}
+        <StyledView className='flex-row items-center justify-between gap-2 mb-1'>
+          <StyledView className='flex-row items-center gap-1'>
+            <Ionicons name='checkmark-circle-outline' size={24} color='green' />
+            <StyledText className='text-sm text-gray-500'>
+              Delivered on 29.06.2022, 5:30 PM
+            </StyledText>
+          </StyledView>
+          <StyledTouchableOpacity onPress={toggleDeliveryInformation}>
+            <Ionicons name='chevron-forward-outline' size={24} color='gray' />
+          </StyledTouchableOpacity>
+        </StyledView>
       </StyledView>
 
       {/* Items in Order */}
-      <StyledText className='text-lg font-bold pl-2 text-black mb-2'>
+      <StyledText className='text-lg font-bold pl-2 text-black my-2'>
         Items in order
       </StyledText>
 
       {/* Order Items */}
-      <StyledView className='space-y-6 p-2 '>
+      <StyledView className='space-y-2 p-2 '>
         {/* Item 1 */}
-        <StyledView className='flex-row items-center justify-between'>
+        <StyledView className='flex-row items-center justify-between bg-white rounded-xl py-6 px-3 shadow-md shadow-gray-500'>
           <StyledImage
             source={require('@assets/images/image3.png')}
             className='w-16 h-16 rounded-md'
@@ -115,31 +108,12 @@ export default function OrderScreen() {
             </StyledText>
           </StyledView>
           <StyledText className='text-base font-bold text-black'>
-            9.75 ₹
+            ₹9.75
           </StyledText>
         </StyledView>
 
         {/* Item 2 */}
-        <StyledView className='flex-row items-center justify-between'>
-          <StyledImage
-            source={require('@assets/images/image3.png')}
-            className='w-16 h-16 rounded-md'
-          />
-          <StyledView className='flex-1 ml-4'>
-            <StyledText className='font-bold text-black'>
-              Gelomyrtol Forte 20 ST
-            </StyledText>
-            <StyledText className='text-sm text-gray-500'>
-              20pcs | 12.95 ₹ x1
-            </StyledText>
-          </StyledView>
-          <StyledText className='text-base font-bold text-black'>
-            12.95 ₹
-          </StyledText>
-        </StyledView>
-
-        {/* Item 3 */}
-        <StyledView className='flex-row items-center justify-between'>
+        <StyledView className='flex-row items-center justify-between bg-white rounded-xl py-6 px-3 shadow-md shadow-gray-500'>
           <StyledImage
             source={require('@assets/images/image3.png')}
             className='w-16 h-16 rounded-md'
@@ -153,50 +127,74 @@ export default function OrderScreen() {
             </StyledText>
           </StyledView>
           <StyledText className='text-base font-bold text-black'>
-            31.00 ₹
+            ₹31.00
+          </StyledText>
+        </StyledView>
+
+        {/* Item 3 */}
+        <StyledView className='flex-row items-center justify-between bg-white rounded-xl py-6 px-3 shadow-md shadow-gray-500'>
+          <StyledImage
+            source={require('@assets/images/image3.png')}
+            className='w-16 h-16 rounded-md'
+          />
+          <StyledView className='flex-1 ml-4'>
+            <StyledText className='font-bold text-black'>
+              Aesop Resurrection
+            </StyledText>
+            <StyledText className='text-sm text-gray-500'>
+              500ml soap | 31.00 ₹ x1
+            </StyledText>
+          </StyledView>
+          <StyledText className='text-base font-bold text-black'>
+            ₹31.00
           </StyledText>
         </StyledView>
       </StyledView>
 
-      <StyledView className='bg-secondary mt-10 rounded-t-md px-4 py-2 z-10'>
+      <StyledView className='bg-white mt-5 rounded-xl py-2 px-3 shadow-md'>
         {/* Order Summary */}
-        <StyledView className='flex-row justify-between mb-4'>
-          <StyledText className='text-lg font-bold text-white'>
+        <StyledView className='flex-row justify-between mb-3'>
+          <StyledText className='text-base font-bold text-black'>
             Order Total
           </StyledText>
-          <StyledText className='text-lg font-bold text-white'>
-            53.70 ₹
+          <StyledText className='text-base font-bold text-black'>
+            ₹53.70
           </StyledText>
         </StyledView>
 
         {/* Order Details */}
-        <StyledView className='space-y-2 mb-6'>
-          <StyledText className='text-sm text-primary'>
-            Order ID: VSLR-298A
-          </StyledText>
-          <StyledText className='text-sm text-primary'>
-            Order Time: 29.06.2022, 14:13
-          </StyledText>
-          <StyledText className='text-sm text-primary'>
-            Payment Time: 29.06.2022, 14:17
-          </StyledText>
-          <StyledText className='text-sm text-primary'>
-            Ship Time: 29.06.2022, 14:47
-          </StyledText>
-          <StyledText className='text-sm text-primary'>
-            Completed Time: 29.06.2022, 15:18
-          </StyledText>
+        <StyledView className='space-y-4 mb-2'>
+          <StyledView className='flex-row justify-between'>
+            <StyledText className='text-base font-bold text-black'>
+              Order ID
+            </StyledText>
+            <StyledText className='text-base font-bold text-black'>
+              VSLR-298A
+            </StyledText>
+          </StyledView>
+          <StyledView className='flex-row justify-between'>
+            <StyledText className='text-base font-bold text-black'>
+              Order Time
+            </StyledText>
+            <StyledText className='text-base font-bold text-black'>
+              29.06.2022, 14:13
+            </StyledText>
+          </StyledView>
+          <StyledView className='flex-row justify-between'>
+            <StyledText className='text-base font-bold text-black'>
+              Ship Time
+            </StyledText>
+            <StyledText className='text-base font-bold text-black'>
+              29.06.2022, 14:47
+            </StyledText>
+          </StyledView>
         </StyledView>
-
-        {/* Buy Again Button */}
-        <StyledTouchableOpacity className='bg-primary rounded-md py-3'>
-          <StyledText className='text-center text-secondary text-base font-bold'>
-            BUY AGAIN
-          </StyledText>
-        </StyledTouchableOpacity>
+        <Button
+          title='Buy Again'
+          onPress={() => router.push('/pages/checkout')}
+        />
       </StyledView>
 
-      {/* Modal for Delivery Information */}
       <Modal
         visible={openDeliveryInformation}
         animationType='slide'
@@ -205,8 +203,8 @@ export default function OrderScreen() {
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>
           <Animated.View
             style={{
-              height: '80%',
-              backgroundColor: 'white',
+              height: '50.3%',
+              backgroundColor: 'transparent',
               borderTopLeftRadius: 20,
               borderTopRightRadius: 20,
               padding: 20,

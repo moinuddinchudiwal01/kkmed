@@ -12,7 +12,7 @@ interface CategoryProps {
 
 const CategoryCard: React.FC<CategoryProps> = ({ name, imageUrl }) => {
   return (
-    <StyledPressable className='m-2 bg-white w-32 p-2 rounded-lg shadow-lg shadow-black'>
+    <StyledPressable className='m-2 bg-white w-32 p-2 rounded-lg shadow-lg shadow-gray-500'>
       <StyledView className='w-[110px] p-2 items-center'>
         <StyledImage
           source={{ uri: imageUrl }}

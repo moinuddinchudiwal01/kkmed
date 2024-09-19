@@ -7,7 +7,7 @@ interface ConcernProps {
 
 const ConcernCard: React.FC<ConcernProps> = ({ name, imageUrl }) => {
   return (
-    <StyledPressable className='mx-2 bg-white w-36 relative rounded-lg shadow-lg shadow-black'>
+    <StyledPressable className='mx-2 bg-white w-36 relative rounded-lg shadow-lg shadow-gray-500'>
       <StyledImage
         source={{ uri: imageUrl }}
         className='h-24 w-36 rounded-lg'
