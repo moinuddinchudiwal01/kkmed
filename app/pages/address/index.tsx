@@ -1,7 +1,12 @@
+import { StyledText, StyledView } from '@components/shared/StyledComponents';
 import React from 'react';
 
 const Address = () => {
-  return <div>Address</div>;
+  return (
+    <StyledView>
+      <StyledText>Address</StyledText>
+    </StyledView>
+  );
 };
 
 export default Address;

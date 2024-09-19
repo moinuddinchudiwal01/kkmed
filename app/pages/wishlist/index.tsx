@@ -1,7 +1,12 @@
+import { StyledView, StyledText } from '@components/shared/StyledComponents';
 import React from 'react';
 
 const WhishListPage = () => {
-  return <div>WhishListPage</div>;
+  return (
+    <StyledView>
+      <StyledText>WishList</StyledText>
+    </StyledView>
+  );
 };
 
 export default WhishListPage;
