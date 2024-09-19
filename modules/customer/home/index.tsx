@@ -17,7 +17,7 @@ import { category, concern, products } from 'data/homePageData';
 
 export default function HomeScreen() {
   return (
-    <StyledScrollView className='bg-gray-200 px-4 py-2'>
+    <StyledScrollView className='bg-gray-100 px-4 py-2'>
       <StyledView className='flex-row justify-between gap-2 items-center'>
         <StyledTextInput
           placeholder='Search meds or...'

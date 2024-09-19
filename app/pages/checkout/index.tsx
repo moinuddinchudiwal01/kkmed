@@ -1,8 +1,14 @@
-import Header from '@components/header'
-import { StyledScrollView, StyledText, StyledTextInput, StyledTouchableOpacity, StyledView } from '@components/shared/StyledComponents'
-import { Ionicons } from '@expo/vector-icons'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import Header from '@components/header';
+import {
+  StyledScrollView,
+  StyledText,
+  StyledTextInput,
+  StyledTouchableOpacity,
+  StyledView,
+} from '@components/shared/StyledComponents';
+import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Checkout = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -16,84 +22,101 @@ const Checkout = () => {
   const toggleEdit = () => {
     setIsEditing(!isEditing);
   };
-  
-  const renderEditField = (label:string, value:string, onChange:any) => (
+
+  const renderEditField = (label: string, value: string, onChange: any) => (
     <StyledTextInput
-    className='border-b border-gray-300 py-1 mb-2'  
+      className='border-b border-gray-300 py-1 mb-2'
       value={value}
       onChangeText={onChange}
       placeholder={label}
     />
   );
-  
+
   return (
-    <SafeAreaView >
-      <StyledScrollView className="px-4 py-2 bg-white">
-        
-         {/* Header */}
-         <Header title="Checkout" backUrl='/pages/cart'>
-            <Ionicons name="cart" size={24} color="black" />
+    <SafeAreaView>
+      <StyledScrollView className='px-4 py-2 bg-gray-100'>
+        {/* Header */}
+        <Header title='Checkout' backUrl='/pages/cart'>
+          <Ionicons name='cart' size={24} color='black' />
         </Header>
 
-
         <StyledText className='text-lg font-bold'>Shipping Address</StyledText>
-   
-        <StyledView className='bg-gray-100 p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>     
+
+        <StyledView className='bg-gray-100 p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>
           <StyledView className='flex-row justify-end items-center bg-gray-100'>
             <StyledTouchableOpacity>
-              <StyledText className='text-red-500 capitalize' onPress={toggleEdit}>{isEditing ?"save":"change"  }</StyledText>
+              <StyledText
+                className='text-red-500 capitalize'
+                onPress={toggleEdit}
+              >
+                {isEditing ? 'save' : 'change'}
+              </StyledText>
             </StyledTouchableOpacity>
           </StyledView>
 
-      {/* Address Details */}
-        <StyledView >
-        {isEditing ? (
-          <>
-            {renderEditField('Name', address.name, (text: any) => setAddress({ ...address, name: text }))}
-            {renderEditField('Street', address.street, (text: any) => setAddress({ ...address, street: text }))}
-            {renderEditField('City', address.city, (text: any) => setAddress({ ...address, city: text }))}
-            {renderEditField('Country', address.country, (text: any) => setAddress({ ...address, country: text }))}
-          </>
-        ) : (
-          <>
-            <StyledText className='text-base'>{address.name}</StyledText>
-            <StyledText className='text-base'>{address.street}</StyledText>
-            <StyledText className='text-base'>{address.city}</StyledText>
-            <StyledText className='text-base'>{address.country}</StyledText>
-          </>
-        )}
+          {/* Address Details */}
+          <StyledView>
+            {isEditing ? (
+              <>
+                {renderEditField('Name', address.name, (text: any) =>
+                  setAddress({ ...address, name: text })
+                )}
+                {renderEditField('Street', address.street, (text: any) =>
+                  setAddress({ ...address, street: text })
+                )}
+                {renderEditField('City', address.city, (text: any) =>
+                  setAddress({ ...address, city: text })
+                )}
+                {renderEditField('Country', address.country, (text: any) =>
+                  setAddress({ ...address, country: text })
+                )}
+              </>
+            ) : (
+              <>
+                <StyledText className='text-base'>{address.name}</StyledText>
+                <StyledText className='text-base'>{address.street}</StyledText>
+                <StyledText className='text-base'>{address.city}</StyledText>
+                <StyledText className='text-base'>{address.country}</StyledText>
+              </>
+            )}
+          </StyledView>
         </StyledView>
-     </StyledView>
 
-     <StyledView className='bg-gray-100 p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>
-      {/* Order Row */}
-      <StyledView className='flex-row justify-between'>
-        <StyledText className='text-gray-500 font-semibold'>Order:</StyledText>
-        <StyledText className='font-bold'>$500</StyledText>
-      </StyledView>
+        <StyledView className='bg-gray-100 p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>
+          {/* Order Row */}
+          <StyledView className='flex-row justify-between'>
+            <StyledText className='text-gray-500 font-semibold'>
+              Order:
+            </StyledText>
+            <StyledText className='font-bold'>$500</StyledText>
+          </StyledView>
 
-      {/* Delivery Row */}
-      <StyledView className='flex-row justify-between mt-2'>
-        <StyledText className='text-gray-500 font-semibold'>Delivery:</StyledText>
-        <StyledText className='font-bold'>$50</StyledText>
-      </StyledView>
+          {/* Delivery Row */}
+          <StyledView className='flex-row justify-between mt-2'>
+            <StyledText className='text-gray-500 font-semibold'>
+              Delivery:
+            </StyledText>
+            <StyledText className='font-bold'>$50</StyledText>
+          </StyledView>
 
-      {/* Summary Row */}
-      <StyledView className='flex-row justify-between mt-2'>
-        <StyledText className='text-gray-500 font-semibold'>Summary:</StyledText>
-        <StyledText className='font-bold'>$550</StyledText>
-      </StyledView>
-</StyledView>
+          {/* Summary Row */}
+          <StyledView className='flex-row justify-between mt-2'>
+            <StyledText className='text-gray-500 font-semibold'>
+              Summary:
+            </StyledText>
+            <StyledText className='font-bold'>$550</StyledText>
+          </StyledView>
+        </StyledView>
 
-
-      {/* submit Button */}
-      <StyledTouchableOpacity className='mt-4 bg-red-500 py-4 rounded-lg flex-row justify-center items-center'>
-        <StyledText className='text-white font-bold text-center capitalize'>Submit order</StyledText>
-      </StyledTouchableOpacity>
-    
+        {/* submit Button */}
+        <StyledTouchableOpacity className='mt-4 bg-red-500 py-4 rounded-lg flex-row justify-center items-center'>
+          <StyledText className='text-white font-bold text-center capitalize'>
+            Submit order
+          </StyledText>
+        </StyledTouchableOpacity>
       </StyledScrollView>
     </SafeAreaView>
-        )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

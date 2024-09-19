@@ -13,21 +13,20 @@ interface HeaderProps {
 const Header = ({ title, backUrl, children, className }: HeaderProps) => {
   return (
     <StyledView
-      className={`flex-row items-center justify-center relative p-4 bg-white ${
+      className={`flex-row items-center justify-center relative p-4  ${
         className
       }`}
     >
       {/* Back Button */}
       {backUrl && (
-        <Link href={backUrl as any} className='absolute left-0'>
-          <Ionicons name='chevron-back' size={24} color='black' />
+        <Link href={backUrl as any} className='absolute left-5'>
+          <Ionicons name='chevron-back' size={28} color='black' />
         </Link>
       )}
 
       {/* Title */}
       <StyledText className='text-lg font-bold capitalize'>{title}</StyledText>
 
-      {/* Additional Elements */}
       {children && (
         <StyledView className='absolute right-0 flex flex-row items-center'>
           {children}

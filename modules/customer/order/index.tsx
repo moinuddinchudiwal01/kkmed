@@ -1,3 +1,4 @@
+import Header from '@components/header';
 import {
   StyledScrollView,
   StyledText,
@@ -12,21 +13,16 @@ const OrderScreen = () => {
   const [activeTab, setActiveTab] = useState('Delivered');
 
   return (
-    <StyledScrollView className='bg-white'>
+    <StyledScrollView className='bg-gray-100'>
       {/* Header */}
-      <StyledView className='flex-row items-center justify-center mb-4'>
-        <StyledText className='text-xl font-bold text-black'>
-          My Orders
-        </StyledText>
-      </StyledView>
-
+      <Header className='order_header' title='My Orders'></Header>
       {/* Tabs */}
       <StyledView className='flex-row justify-around mb-2'>
         {['Delivered', 'Processing', 'Cancelled'].map((tab) => (
           <StyledPressable
             key={tab}
             onPress={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-black' : 'bg-transparent'}`}
+            className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-black' : 'bg-transparent border'}`}
           >
             <StyledText
               className={`${activeTab === tab ? 'text-white' : 'text-black'}`}
@@ -41,7 +37,7 @@ const OrderScreen = () => {
       {[1, 2, 3].map((_order, index) => (
         <StyledView
           key={index}
-          className='bg-gray-100 p-4 mx-2 my-3 rounded-lg shadow-md shadow-gray-700'
+          className='bg-gray-100 p-4 mx-2 my-3 rounded-lg shadow-md shadow-gray-500'
         >
           <StyledView className='flex-row justify-between mb-2'>
             <StyledText className='text-black text-lg font-bold'>
@@ -61,7 +57,9 @@ const OrderScreen = () => {
             <StyledTouchableOpacity className='border border-gray-500 rounded-full px-4 py-1 mt-2'>
               <Link href={'/pages/orderdetail/1'}>details</Link>
             </StyledTouchableOpacity>
-            <StyledText className='text-green-500'>Delivered</StyledText>
+            <StyledText className='text-green-600 font-bold text-lg'>
+              Delivered
+            </StyledText>
           </StyledView>
         </StyledView>
       ))}
