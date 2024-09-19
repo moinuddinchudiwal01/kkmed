@@ -14,6 +14,8 @@ export const ROUTES = {
         PRODUCTS: '/pages/products',
         PRODUCT_DETAILS: '/pages/products/details/:id',
         CHECKOUT: '/pages/checkout',
+        CATEGORY: '/pages/categorylisting',
+        CATEGORY_LISTING: '/pages/categorylisting/:id',
       },
       UPLOAD: {},
       ORDERS: {

@@ -28,7 +28,7 @@ export const cartItems = [
     image: image5,
   },
   {
-    id: 3,
+    id: 4,
     name: 'Sugar free gold',
     description: 'bottle of 500 pellets',
     price: 18,
@@ -36,7 +36,7 @@ export const cartItems = [
     image: image5,
   },
   {
-    id: 3,
+    id: 5,
     name: 'Sugar free gold',
     description: 'bottle of 500 pellets',
     price: 18,
@@ -44,7 +44,7 @@ export const cartItems = [
     image: image5,
   },
   {
-    id: 3,
+    id: 7,
     name: 'Sugar free gold',
     description: 'bottle of 500 pellets',
     price: 18,
