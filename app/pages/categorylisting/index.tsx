@@ -1,20 +1,28 @@
-import Button from '@components/button';
-import { StyledText } from '@components/shared/StyledComponents';
+import Header from '@components/header';
+import CategoryCard from '@components/shared/CategoryCard';
+import {
+  StyledScrollView,
+  StyledView,
+} from '@components/shared/StyledComponents';
 import { ROUTES } from 'core/utils/routes';
-import { router } from 'expo-router';
+import { category } from 'data/homePageData';
 import React from 'react';
 
 const CategoryPage = () => {
   return (
-    <StyledText>
-      cataegory page
-      <Button
-        title='cataegry details'
-        onPress={() =>
-          router.push(`${ROUTES.CUSTOMER.PAGES.HOME.CATEGORY_LISTING}${'12'}`)
-        }
-      />
-    </StyledText>
+    <StyledScrollView className='bg-gray-100 px-4 py-4'>
+      <Header title='Categories' backUrl={ROUTES.CUSTOMER.TABS.HOME}></Header>
+      <StyledView className='flex flex-row gap-2 flex-wrap items-center mt-4'>
+        {category.map((item, index) => (
+          <CategoryCard
+            name={item.name}
+            imageUrl={item.imageUrl}
+            id={item.id}
+            key={index}
+          />
+        ))}
+      </StyledView>
+    </StyledScrollView>
   );
 };
 
