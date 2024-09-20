@@ -31,20 +31,45 @@ const products = [
 
 const category = [
   {
+    id: '1',
     name: 'medicine',
     imageUrl:
       'https://i.pinimg.com/564x/68/54/89/6854895b4e52be9c4e6484eb224b7639.jpg',
   },
   {
+    id: '2',
     name: 'healthCare',
     imageUrl: 'https://cdn-icons-png.flaticon.com/512/5759/5759421.png',
   },
   {
+    id: '3',
     name: 'insulin',
     imageUrl: 'https://cdn-icons-png.flaticon.com/512/8730/8730868.png',
   },
   {
+    id: '4',
     name: 'skinCare',
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/4192/4192598.png',
+  },
+  {
+    id: '5',
+    name: 'food',
+    imageUrl:
+      'https://i.pinimg.com/564x/68/54/89/6854895b4e52be9c4e6484eb224b7639.jpg',
+  },
+  {
+    id: '6',
+    name: 'fitness',
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/5759/5759421.png',
+  },
+  {
+    id: '7',
+    name: 'homeCare',
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/8730/8730868.png',
+  },
+  {
+    id: '8',
+    name: 'ayurveda',
     imageUrl: 'https://cdn-icons-png.flaticon.com/512/4192/4192598.png',
   },
 ];

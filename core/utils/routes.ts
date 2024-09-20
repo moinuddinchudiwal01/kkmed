@@ -12,7 +12,7 @@ export const ROUTES = {
         NOTIFICATION: '/pages/notification',
         CART: '/pages/cart',
         PRODUCTS: '/pages/products',
-        PRODUCT_DETAILS: '/pages/products/details/:id',
+        PRODUCT_DETAILS: '/pages/products/:id',
         CHECKOUT: '/pages/checkout',
         CATEGORY: '/pages/categorylisting',
         CATEGORY_LISTING: '/pages/categorylisting/:id',
