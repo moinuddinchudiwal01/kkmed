@@ -5,26 +5,31 @@ import {
   StyledView,
   StyledPressable,
 } from './StyledComponents';
-import { router } from 'expo-router';
+import { Href, router } from 'expo-router';
 import { ROUTES } from 'core/utils/routes';
 interface CategoryProps {
   name: string;
   imageUrl: string;
+  id?: string;
 }
 
-const CategoryCard: React.FC<CategoryProps> = ({ name, imageUrl }) => {
+const CategoryCard: React.FC<CategoryProps> = ({ name, imageUrl, id }) => {
   return (
     <StyledPressable
-      onPress={() => router.push(`${ROUTES.CUSTOMER.PAGES.HOME.CATEGORY}`)}
-      className='m-2 bg-white w-32 p-2 rounded-lg shadow-lg shadow-gray-500'
+      onPress={() =>
+        router.push(
+          `${ROUTES.CUSTOMER.PAGES.HOME.CATEGORY_LISTING}${id}` as Href<string>
+        )
+      }
+      className='m-2 bg-white w-[29%] items-center p-2 rounded-lg shadow-lg shadow-gray-500'
     >
-      <StyledView className='w-[110px] p-2 items-center'>
+      <StyledView className='p-1 items-center'>
         <StyledImage
           source={{ uri: imageUrl }}
-          className='h-16 w-16 object-cover'
+          className='h-12 w-12 object-cover'
         />
       </StyledView>
-      <StyledText className='text-base capitalize font-bold text-center px-2 pt-2'>
+      <StyledText className='text-sm capitalize font-bold text-center px-2 pt-2'>
         {name}
       </StyledText>
     </StyledPressable>

@@ -19,20 +19,13 @@ const Cart = () => {
   const itemsToDisplay = viewMore ? cartItems : cartItems.slice(0, 4);
 
   return (
-    <StyledScrollView className='px-4 py-2 bg-gray-100'>
+    <StyledScrollView className='px-4 py-2 bg-gray-100 '>
       <Header
         className='cart_header'
-        title='Your Cart'
+        title={`Your Cart (${cartItems.length})`}
         backUrl={ROUTES.CUSTOMER.TABS.HOME}
-      >
-        <StyledTouchableOpacity className='relative flex flex-row'>
-          <Ionicons name='cart-outline' size={40} />
-          <StyledView className='absolute top-0 right-0 w-5 h-5 bg-highlighted rounded-full flex items-center justify-center'>
-            <StyledText className='text-white text-sm'>{2}</StyledText>
-          </StyledView>
-        </StyledTouchableOpacity>
-      </Header>
-      <StyledView className='cart_items'>
+      ></Header>
+      <StyledView className='cart_items mt-4'>
         <StyledScrollView
           className={`${viewMore ? 'h-[26rem]' : 'h-auto'}`}
           scrollEnabled={viewMore}
@@ -134,7 +127,9 @@ const Cart = () => {
       </StyledView>
       <Button
         title='Place Order'
-        onPress={() => router.push(`${ROUTES.CUSTOMER.PAGES.HOME.CHECKOUT}`)}
+        onPress={() =>
+          router.push(`${ROUTES.CUSTOMER.PAGES.HOME.CHECKOUT}` as any)
+        }
       />
     </StyledScrollView>
   );
