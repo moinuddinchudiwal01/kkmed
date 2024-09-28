@@ -16,7 +16,7 @@ export default function UploadPrescriptionScreen() {
       {/* Header */}
       <Header title='Upload Prescriptions' />
       {/* Upload Section */}
-      <StyledText className='text-lg font-semibold text-secondary mb-2'>
+      <StyledText className='text-lg font-semibold text-secondary my-2'>
         Have a Prescription?
       </StyledText>
       <Button title='Upload Prescription' onPress={() => {}} />

@@ -36,7 +36,7 @@ const ProductDetails = () => {
     <StyledScrollView className='bg-gray-100 py-2 px-4'>
       <Header title='Medicine' backUrl={ROUTES.CUSTOMER.TABS.HOME} />
 
-      <StyledView className='my-3 bg-white p-2 shadow-lg shadow-black rounded-lg'>
+      <StyledView className='my-3 bg-white p-2 rounded-lg'>
         {/* Image */}
         <StyledView className='p-2 items-center'>
           <StyledImage

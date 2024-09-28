@@ -1,7 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ROUTES } from 'core/utils/routes';
 import { notifications } from 'data/notification';
-import { Link } from 'expo-router';
+import { Href, Link } from 'expo-router';
 import { styled } from 'nativewind';
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
@@ -18,7 +18,7 @@ const Notification = () => {
       <StyledScrollView className='bg-white px-4 py-2'>
         {/* Header */}
         <StyledView className='flex-row items-center mb-4'>
-          <Link href={ROUTES.CUSTOMER.TABS.HOME}>
+          <Link href={ROUTES.CUSTOMER.TABS.HOME as Href<string>}>
             <Ionicons name='arrow-back' size={24} color='black' />
           </Link>
           <StyledText className='ml-2 text-xl font-bold text-black'>

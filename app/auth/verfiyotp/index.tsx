@@ -5,6 +5,7 @@ import {
   StyledTouchableOpacity,
   StyledView,
 } from '@components/shared/StyledComponents';
+import { router } from 'expo-router';
 import React, { useRef, useState } from 'react';
 import {
   NativeSyntheticEvent,
@@ -70,7 +71,8 @@ const LoginScreen = () => {
     console.log('OTP Verified:', newOtp.join(''));
     setTimeout(() => {
       setLoading(false);
-    }, 1500); // Simulated delay for verification
+      router.push('/tabs/home');
+    }, 1500);
   };
 
   return (
@@ -94,7 +96,6 @@ const LoginScreen = () => {
                   onChangeText={(text) => handleOtpChange(text, index)}
                   onKeyPress={(event) => handleKeyPress(event, index)}
                   maxLength={1}
-                  placeholder='0'
                   value={otp[index]}
                 />
               ))}
