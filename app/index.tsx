@@ -12,7 +12,7 @@ const RootLayout = () => {
     setIsMounted(true);
 
     const checkToken = async () => {
-      const token = (await getAsyncStorageItem('userToken')) || '1';
+      const token = await getAsyncStorageItem('userToken');
       const userType = (await getAsyncStorageItem('userType')) || 'customer';
       if (isMounted) {
         if (token) {
