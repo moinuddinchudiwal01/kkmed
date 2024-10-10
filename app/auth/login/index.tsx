@@ -1,12 +1,11 @@
-import Header from '@components/header';
 import {
   StyledImage,
-  StyledScrollView,
   StyledText,
   StyledTextInput,
   StyledTouchableOpacity,
   StyledView,
 } from '@components/shared/StyledComponents';
+import { FontAwesome } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { ToastAndroid } from 'react-native';
@@ -24,39 +23,73 @@ const LoginScreen = () => {
     }
     router.push('/auth/verfiyotp');
   };
+
   return (
-    <StyledScrollView className='px-4 bg-white'>
-      {/* Header */}
-      <Header title='Login Or Register' />
-      <StyledView className='w-full flex flex-col justify-between p-2 mt-10'>
-        <StyledView className='flex flex-col gap-5 h-96 justify-end '>
-          <StyledImage
-            source={require('../../../assets/images/loginLogo.png')}
-            className='w-full h-32 rounded-2xl'
-          />
-          <StyledText className='text-xl font-bold text-center'>
-            Enter Your Phone Number
-          </StyledText>
-          <StyledTextInput
-            className='border border-secondary p-3 rounded-lg text-lg'
-            placeholder='Enter Your Phone Number'
-            keyboardType='numeric'
-            onChangeText={(text) => setPhoneNo(text)}
-            maxLength={10}
-            value={phoneNo}
-          />
+    <StyledView className='flex-1 bg-dark'>
+      <StyledView className='flex-1 justify-center items-center relative'>
+        <StyledView className='absolute bottom-0 w-full h-[65%] bg-[#E5E8E8] rounded-tl-[90px] px-6'>
+          <StyledView className='mt-10 relative'>
+            {/* <StyledText className='text-3xl text-center font-semibold text-dark'>
+              LOGIN
+            </StyledText> */}
+
+            <StyledView className='w-full mt-6 flex flex-col'>
+              <StyledText className='text-center text-base font-bold tracking-wider text-dark'>
+                Enter Your Credential To
+              </StyledText>
+              <StyledText className='text-center text-base font-bold tracking-wider text-dark'>
+                Login To Your Account
+              </StyledText>
+            </StyledView>
+            <StyledView className='border pl-4 border-borderColor bg-[#F2F2F2] relative flex flex-row items-center mt-8'>
+              {/* Phone Icon */}
+              <FontAwesome
+                name='phone'
+                size={24}
+                color='black'
+                className='mr-3'
+              />
+
+              <StyledTextInput
+                className='flex-1 py-4 px-4 rounded-lg text-lg text-dark'
+                placeholder='Your phone number'
+                keyboardType='numeric'
+                onChangeText={(text) => setPhoneNo(text)}
+                maxLength={10}
+                value={phoneNo}
+              />
+            </StyledView>
+
+            <StyledTouchableOpacity
+              onPress={handleLogin}
+              className='w-full bg-dark py-4 rounded-md mt-4'
+            >
+              <StyledText className='text-white text-lg font-semibold text-center'>
+                Get Otp
+              </StyledText>
+            </StyledTouchableOpacity>
+
+            <StyledView className='flex flex-col gap-1 justify-center items-center mt-36'>
+              <StyledText className='text-base text-light'>
+                By logging in, you agree to our
+              </StyledText>
+              <StyledText className='text-base font-semibold text-dark'>
+                Terms of Services{' '}
+                <StyledText className='text-base text-light'> and </StyledText>{' '}
+                Privacy Policy
+              </StyledText>
+            </StyledView>
+          </StyledView>
         </StyledView>
 
-        <StyledTouchableOpacity
-          onPress={handleLogin}
-          className='bg-secondary py-4 rounded-lg mt-5'
-        >
-          <StyledText className='text-center text-lg text-white font-semibold'>
-            Let Me In
-          </StyledText>
-        </StyledTouchableOpacity>
+        <StyledView className='absolute top-12'>
+          <StyledImage
+            source={require('../../../assets/images/loginLogo.png')}
+            className='w-56 h-56'
+          />
+        </StyledView>
       </StyledView>
-    </StyledScrollView>
+    </StyledView>
   );
 };
 

@@ -9,7 +9,6 @@ import { router } from 'expo-router';
 import React, { useRef, useState } from 'react';
 import {
   NativeSyntheticEvent,
-  SafeAreaView,
   TextInput,
   TextInputKeyPressEventData,
 } from 'react-native';
@@ -76,44 +75,57 @@ const LoginScreen = () => {
   };
 
   return (
-    <SafeAreaView>
-      <StyledScrollView className='p-5 bg-white'>
-        <StyledView className='items-center mb-5'>
-          <StyledText className='text-2xl font-bold'>Verify Account</StyledText>
-        </StyledView>
-        <StyledView className='w-full flex flex-col justify-between p-2 mt-10'>
-          <StyledView className='flex flex-col gap-5'>
-            <StyledText className='text-lg font-bold text-center'>
-              Enter Your OTP
+    <StyledScrollView className='bg-dark relative flex flex-col'>
+      <StyledView className='w-full flex flex-col justify-between p-3 mt-10'>
+        <StyledView className='flex flex-col gap-8'>
+          <StyledView>
+            <StyledText className='text-lg font-bold text-center text-light'>
+              Enter the code sent to
             </StyledText>
-            <StyledView className='flex-row justify-around'>
-              {Object.values(refs).map((ref, index) => (
-                <StyledTextInput
-                  ref={ref}
-                  key={index}
-                  className='border border-secondary p-3 w-12 text-lg text-center rounded-lg'
-                  keyboardType='numeric'
-                  onChangeText={(text) => handleOtpChange(text, index)}
-                  onKeyPress={(event) => handleKeyPress(event, index)}
-                  maxLength={1}
-                  value={otp[index]}
-                />
-              ))}
-            </StyledView>
+            <StyledText className='text-lg font-bold text-center text-white'>
+              +91 000000000
+            </StyledText>
           </StyledView>
+
+          <StyledView className='flex-row justify-around'>
+            {Object.values(refs).map((ref, index) => (
+              <StyledTextInput
+                ref={ref}
+                key={index}
+                className='border border-borderColor bg-secondary-dark p-3 w-14 h-14 text-lg text-center rounded-md text-light'
+                keyboardType='numeric'
+                onChangeText={(text) => handleOtpChange(text, index)}
+                onKeyPress={(event) => handleKeyPress(event, index)}
+                maxLength={1}
+                value={otp[index]}
+              />
+            ))}
+          </StyledView>
+
           <StyledTouchableOpacity
-            className='mt-6 bg-secondary p-2.5 rounded-md'
-            onPress={() => handleVerifyOtp(otp)}
-            disabled={!otp.every((digit) => digit !== '') || loading} // Disable button during loading or until OTP is filled
+            className='self-center'
+            onPress={() => console.log('Resend OTP')}
           >
-            <StyledText className='text-center text-lg text-white font-bold'>
-              {loading ? 'Verifying...' : 'Verify OTP'}{' '}
-              {/* Show loading text */}
+            <StyledText className='text-center text-lg text-light'>
+              Didn’t receive the code?{' '}
+              <StyledText className='underline text-white'>Resend</StyledText>
             </StyledText>
           </StyledTouchableOpacity>
         </StyledView>
-      </StyledScrollView>
-    </SafeAreaView>
+      </StyledView>
+
+      <StyledView className='mr-8 relative h-[570px]'>
+        <StyledTouchableOpacity
+          className='bg-primary p-4 ml-4 rounded-md w-full absolute bottom-0'
+          onPress={() => handleVerifyOtp(otp)}
+          disabled={!otp.every((digit) => digit !== '') || loading} // Disable button during loading or until OTP is filled
+        >
+          <StyledText className='text-center text-lg text-dark font-bold'>
+            {loading ? 'Verifying...' : 'Verify Me'}
+          </StyledText>
+        </StyledTouchableOpacity>
+      </StyledView>
+    </StyledScrollView>
   );
 };
 
