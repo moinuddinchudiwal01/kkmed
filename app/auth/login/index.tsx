@@ -25,9 +25,9 @@ const LoginScreen = () => {
   };
 
   return (
-    <StyledView className='flex-1 bg-dark'>
+    <StyledView className='flex-1 bg-secondary'>
       <StyledView className='flex-1 justify-center items-center relative'>
-        <StyledView className='absolute bottom-0 w-full h-[65%] bg-[#E5E8E8] rounded-tl-[90px] px-6'>
+        <StyledView className='absolute bottom-0 w-full h-[65%] bg-primary rounded-tl-[50px] px-6'>
           <StyledView className='mt-10 relative'>
             {/* <StyledText className='text-3xl text-center font-semibold text-dark'>
               LOGIN
@@ -41,7 +41,7 @@ const LoginScreen = () => {
                 Login To Your Account
               </StyledText>
             </StyledView>
-            <StyledView className='border pl-4 border-borderColor bg-[#F2F2F2] relative flex flex-row items-center mt-8'>
+            <StyledView className='border pl-4 border-dark bg-input relative flex flex-row rounded-lg items-center mt-8'>
               {/* Phone Icon */}
               <FontAwesome
                 name='phone'
@@ -62,7 +62,7 @@ const LoginScreen = () => {
 
             <StyledTouchableOpacity
               onPress={handleLogin}
-              className='w-full bg-dark py-4 rounded-md mt-4'
+              className='w-full bg-dark py-4 rounded-lg mt-4'
             >
               <StyledText className='text-white text-lg font-semibold text-center'>
                 Get Otp
@@ -70,12 +70,12 @@ const LoginScreen = () => {
             </StyledTouchableOpacity>
 
             <StyledView className='flex flex-col gap-1 justify-center items-center mt-36'>
-              <StyledText className='text-base text-light'>
+              <StyledText className='text-base text-dark'>
                 By logging in, you agree to our
               </StyledText>
               <StyledText className='text-base font-semibold text-dark'>
                 Terms of Services{' '}
-                <StyledText className='text-base text-light'> and </StyledText>{' '}
+                <StyledText className='text-base text-dark'> and </StyledText>{' '}
                 Privacy Policy
               </StyledText>
             </StyledView>

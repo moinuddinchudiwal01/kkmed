@@ -7,16 +7,24 @@ import React from 'react';
 interface ButtonProps {
   title: string;
   onPress: () => void;
-  className?: string;
+  bgColor?: string;
+  textColor?: string;
 }
 
-const Button = ({ title, onPress, className = '' }: ButtonProps) => {
+const Button = ({
+  title,
+  onPress,
+  bgColor = 'bg-dark',
+  textColor = 'text-white',
+}: ButtonProps) => {
   return (
     <StyledPressable
-      className={`rounded-lg py-3 my-2 bg-secondary text-white ${className}`}
+      className={`rounded-lg py-3 my-2 ${bgColor} ${textColor}`}
       onPress={onPress}
     >
-      <StyledText className='text-center text-lg font-bold text-white capitalize'>
+      <StyledText
+        className={`text-center text-lg font-bold ${textColor} capitalize`}
+      >
         {title}
       </StyledText>
     </StyledPressable>

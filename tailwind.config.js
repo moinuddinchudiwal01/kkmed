@@ -10,11 +10,12 @@ module.exports = {
       colors: {
         white: '#ffffff',
         black: '#000000',
-        primary: '#94ddc0',
-        secondary: '#0c1b0d',
-        highlighted: '#dc2626',
-        dark: '#1b4332',
-        light: '#C7D4C9',
+        primary: '#D2E0D4',
+        secondary: '#8BB788',
+        input: '#EBE9E9',
+        success: '#3F7A6F',
+        dark: '#142917',
+        light: '#E1E6F3',
         borderColor: '#d3d3d3',
       },
       fontFamily: {

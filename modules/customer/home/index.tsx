@@ -1,5 +1,4 @@
 import {
-  StyledImage,
   StyledPressable,
   StyledScrollView,
   StyledText,
@@ -7,135 +6,112 @@ import {
   StyledView,
 } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Href, Link, router } from 'expo-router';
+import { Href, Link } from 'expo-router';
 import React from 'react';
-import banner from '@assets/images/Banner.png';
 import ProductCart from '@components/shared/ProductCart';
 import ConcernCard from '@components/shared/ConcernCard';
 import { concern, products } from 'data/homePageData';
 import { ROUTES } from 'core/utils/routes';
+import Button from '@components/button';
 
 export default function HomeScreen() {
   return (
-    <StyledScrollView className='bg-gray-100 px-4 py-4'>
-      <StyledView className='flex-row justify-between gap-2 items-center'>
-        <StyledTextInput
-          placeholder='Search meds or...'
-          className='text-gray-700 w-[75%] border-gray-400 bg-white border p-3 rounded-xl text-lg'
-          style={{ paddingLeft: 13 }}
-        />
-        <StyledView className='relative flex flex-row'>
-          <StyledView className='absolute top-0 left-3 w-6 h-6 z-10 bg-red-600 rounded-full flex items-center justify-center'>
-            <StyledText className='text-white text-sm'>5</StyledText>
-          </StyledView>
-          <Link href={ROUTES.CUSTOMER.PAGES.HOME.NOTIFICATION as Href<string>}>
-            <Ionicons name='notifications-outline' size={40} color='#6b7280' />
-          </Link>
-          <Link href={ROUTES.CUSTOMER.PAGES.HOME.CART as Href<string>}>
-            <Ionicons name='bag-handle-outline' size={40} color='#6b7280' />
-          </Link>
-          <StyledView className='absolute top-0 right-0 w-6 h-6 bg-highlighted rounded-full flex items-center justify-center'>
-            <StyledText className='text-white text-sm'>2</StyledText>
-          </StyledView>
-        </StyledView>
-      </StyledView>
-
-      <StyledView className='mt-4'>
-        <StyledImage
-          source={banner}
-          className='w-full h-36 rounded-lg max-[390px]:h-32'
-        />
-      </StyledView>
-
-      <StyledView className='mt-4'>
-        <StyledView className='flex-row justify-between items-center'>
-          <StyledText className='text-lg font-bold mb-2 pl-2 capitalize'>
-            shop by category
+    <StyledScrollView className='bg-secondary px-4 py-4'>
+      <StyledView className='flex-row justify-between gap-2 items-center mb-4'>
+        <StyledView className='flex-row items-center justify-center'>
+          <Ionicons name='location-outline' size={24} color='black' />
+          <StyledText className='text-lg font-bold text-dark'>
+            Ahmedabad
           </StyledText>
         </StyledView>
+
+        <StyledView className='flex-row gap-1 items-center'>
+          <Link href={ROUTES.CUSTOMER.PAGES.HOME.NOTIFICATION as Href<string>}>
+            <Ionicons name='notifications-outline' size={26} color='black' />
+          </Link>
+          <Link href={ROUTES.CUSTOMER.PAGES.HOME.CART as Href<string>}>
+            <Ionicons name='bag-handle-outline' size={26} color='black' />
+          </Link>
+        </StyledView>
       </StyledView>
-      <StyledView className='flex flex-row gap-2 items-center mt-1 px-2'>
-        <StyledPressable
-          onPress={() =>
-            router.push(ROUTES.CUSTOMER.PAGES.HOME.CATEGORY as Href<string>)
-          }
-          className='m-2 bg-primary w-1/2 p-2 h-32 justify-center rounded-lg items-center shadow-lg shadow-gray-500'
-        >
-          <StyledView className='items-center'>
-            <StyledImage
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/1529/1529570.png',
-              }}
-              className='h-20 w-20 object-cover'
-            />
-          </StyledView>
-          <StyledText className='text-base capitalize font-bold text-center px-2 pt-2'>
+
+      <StyledView className='flex-row justify-between items-center mb-2'>
+        <StyledTextInput
+          placeholder='Search Medicines & Healthcare Products'
+          className='text-gray-700 w-full border-dark bg-input border p-3 rounded-lg text-lg'
+          style={{ paddingLeft: 13 }}
+        />
+      </StyledView>
+
+      <Button title='Order Via Prescription' onPress={() => {}} />
+
+      <StyledView className='flex-row justify-between mt-2 mb-4'>
+        <StyledPressable className='bg-input w-[48%] p-3 rounded-md flex items-center justify-center'>
+          <StyledText className='text-dark text-lg font-bold'>
             Medicine
           </StyledText>
         </StyledPressable>
-
-        <StyledPressable
-          onPress={() =>
-            router.push(ROUTES.CUSTOMER.PAGES.HOME.CATEGORY as Href<string>)
-          }
-          className='m-2 bg-purple-200 w-1/2 p-2 h-32 justify-center rounded-lg items-center shadow-lg shadow-gray-500'
-        >
-          <StyledView className='items-center'>
-            <StyledImage
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/2966/2966327.png',
-              }}
-              className='h-20 w-20 object-cover'
-            />
-          </StyledView>
-          <StyledText className='text-base capitalize font-bold text-center px-2 pt-2'>
-            HealthCare
+        <StyledPressable className='bg-input w-[48%] p-3 rounded-md flex items-center justify-center'>
+          <StyledText className='text-lg font-bold text-dark'>
+            Healthcare
           </StyledText>
         </StyledPressable>
       </StyledView>
 
-      <StyledView className='mt-3'>
-        <StyledView className='flex-row justify-between items-center'>
-          <StyledText className='text-lg font-bold mb-2 pl-2 capitalize'>
-            New Products
-          </StyledText>
-          <Link
-            href={ROUTES.CUSTOMER.PAGES.HOME.PRODUCTS as Href<string>}
-            className='text-sm capitalize'
-          >
-            see more
-          </Link>
-        </StyledView>
+      {/* Top Products section */}
+      <StyledView className='flex-row justify-between items-center mb-3'>
+        <StyledText className='text-lg font-bold text-dark'>
+          Top Products
+        </StyledText>
+        <Link href={ROUTES.CUSTOMER.PAGES.HOME.PRODUCTS as Href<string>}>
+          <StyledText className='text-base text-dark'>See All</StyledText>
+        </Link>
       </StyledView>
 
-      <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <StyledScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        className='mb-4'
+      >
         {products.map((product, index) => (
           <ProductCart key={index} {...product} />
         ))}
       </StyledScrollView>
 
-      {/* Concern Section */}
-      <StyledView className='mt-3'>
-        <StyledView className='flex-row justify-between items-center'>
-          <StyledText className='text-lg font-bold mb-2 pl-2 capitalize'>
-            Shop By Concern
+      {/* Promotion Banner */}
+      <StyledView className='w-full h-36 bg-dark flex-row items-center my-2 rounded-xl shadow-md border-white border'>
+        <StyledView className='w-[142px] bg-input rounded-t-lg -rotate-90 h-[101%] flex justify-center items-center'>
+          <StyledText className='text-4xl font-bold text-center'>
+            30%
           </StyledText>
-          <Link
-            href={ROUTES.CUSTOMER.PAGES.HOME.PRODUCTS as Href<string>}
-            className='text-sm mb-2 pl-2'
-          >
-            see more
-          </Link>
+          <StyledText className='text-4xl font-bold text-center text-dark'>
+            OFF
+          </StyledText>
         </StyledView>
+        <StyledText className='w-[60%] text-4xl font-semibold text-center text-white'>
+          ON ORDERS OVER $250
+        </StyledText>
       </StyledView>
-      {/* Concern Cards */}
-      <StyledView className='mb-24 mt-2'>
-        <StyledScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {concern.map((product, index) => (
-            <ConcernCard key={index} {...product} />
-          ))}
-        </StyledScrollView>
+
+      {/* Categories section */}
+      <StyledView className='flex-row justify-between items-center mb-2'>
+        <StyledText className='text-lg font-bold text-dark'>
+          Category
+        </StyledText>
+        <Link href={ROUTES.CUSTOMER.PAGES.HOME.CATEGORY as Href<string>}>
+          <StyledText className='text-base text-dark'>See All</StyledText>
+        </Link>
       </StyledView>
+
+      <StyledScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        className='mb-24'
+      >
+        {concern.map((category, index) => (
+          <ConcernCard key={index} {...category} />
+        ))}
+      </StyledScrollView>
     </StyledScrollView>
   );
 }

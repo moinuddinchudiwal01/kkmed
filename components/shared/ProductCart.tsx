@@ -19,35 +19,21 @@ const ProductCard: React.FC<ProductProps> = ({
   imageUrl,
 }) => {
   let orginalName = name;
-  if (orginalName.length > 18) {
-    orginalName = orginalName.substring(0, 18) + '...';
+  if (orginalName.length > 17) {
+    orginalName = orginalName.substring(0, 17) + '...';
   }
   return (
-    <StyledTouchableOpacity className='m-2 bg-white w-36 pb-1 rounded-lg shadow-lg shadow-gray-500'>
+    <StyledTouchableOpacity className='mr-3 bg-primary w-40 h-48 rounded-lg'>
       <StyledImage
         source={{ uri: imageUrl }}
-        className='h-24 w-36 rounded-t-lg'
+        className='h-28 w-40 rounded-lg'
       />
-      {/* <StyledView className='absolute top-2 right-2'>
-        <Ionicons name='heart-outline' size={28} color='black' />
-      </StyledView> */}
-      <StyledText className='text-sm font-bold px-2 pt-2'>
-        {orginalName}
-      </StyledText>
-      <StyledView className='flex-row items-center'>
-        <StyledText className='text-base font-bold px-2'>₹{price}</StyledText>
-        {/* <StyledText className='text-sm bg-highlighted text-center text-white font-bold px-2 rounded-lg'>
-          50%
-        </StyledText> */}
-      </StyledView>
-      {/* <StyledView className='flex-row items-center justify-between pr-1'>
-        <StyledText className='text-sm line-through px-2'>
-          ₹{originalPrice}
+      <StyledView className='flex flex-col pl-1 h-full '>
+        <StyledText className='text-base font-bold px-2 my-1 pt-2'>
+          {orginalName}
         </StyledText>
-        <StyledPressable className='self-end'>
-          <Ionicons size={30} color='black' name='bag-add-outline' />
-        </StyledPressable>
-      </StyledView> */}
+        <StyledText className='text-xl font-bold px-2'>₹{price}</StyledText>
+      </StyledView>
     </StyledTouchableOpacity>
   );
 };

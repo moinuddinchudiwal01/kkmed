@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyledImage, StyledText, StyledPressable } from './StyledComponents';
+import {
+  StyledImage,
+  StyledText,
+  StyledPressable,
+  StyledView,
+} from './StyledComponents';
 interface ConcernProps {
   name: string;
   imageUrl: string;
@@ -7,15 +12,17 @@ interface ConcernProps {
 
 const ConcernCard: React.FC<ConcernProps> = ({ name, imageUrl }) => {
   return (
-    <StyledPressable className='mx-2 bg-white w-36 relative rounded-lg shadow-lg shadow-gray-500'>
-      <StyledImage
-        source={{ uri: imageUrl }}
-        className='h-24 w-36 rounded-lg'
-      />
-      <StyledText className='text-base font-bold capitalize text-center pt-2'>
-        {name}
+    <StyledView className='flex flex-col gap-1 w-24 mr-4'>
+      <StyledPressable className='bg-dark w-24 h-24 relative rounded-lg '>
+        <StyledImage
+          source={{ uri: imageUrl }}
+          className='w-24 h-24 rounded-lg absolute'
+        />
+      </StyledPressable>
+      <StyledText className='text-base font-bold text-dark uppercase text-center'>
+        {name.split(' ')[0]}
       </StyledText>
-    </StyledPressable>
+    </StyledView>
   );
 };
 

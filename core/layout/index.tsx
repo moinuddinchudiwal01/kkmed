@@ -16,18 +16,20 @@ const TabNavigator = () => (
         const iconName = getIconName(route.name, focused);
         return <Ionicons name={iconName as any} size={30} color={color} />;
       },
-      tabBarActiveTintColor: '#0c1b0d',
-      tabBarInactiveTintColor: '#8e8e93',
+      tabBarActiveTintColor: '#D2E0D4',
+      tabBarInactiveTintColor: '#8BB788',
       tabBarLabelStyle: {
-        fontSize: 12,
+        fontSize: 15,
       },
       tabBarStyle: {
-        backgroundColor: '#ffffff',
+        marginHorizontal: 5,
+        borderRadius: 20,
+        backgroundColor: '#142917',
         height: 65,
         position: 'absolute',
-        bottom:0,
+        bottom: 5,
         paddingVertical: 10,
-        paddingBottom:5,
+        paddingBottom: 5,
       },
     })}
   >

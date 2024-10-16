@@ -14,30 +14,23 @@ import {
 } from 'react-native';
 
 const LoginScreen = () => {
-  const [otp, setOtp] = useState(['', '', '', '']);
-  const [loading, setLoading] = useState(false); // Added for loading state
+  const size = 4; // Set the size for OTP dynamically
+  const [otp, setOtp] = useState(new Array(size).fill(''));
+  const [loading, setLoading] = useState(false);
 
-  // Correctly typed refs
-  const input1 = useRef<TextInput>(null);
-  const input2 = useRef<TextInput>(null);
-  const input3 = useRef<TextInput>(null);
-  const input4 = useRef<TextInput>(null);
+  const refs = useRef<(TextInput | null)[]>(new Array(size).fill(null));
 
-  const refs = { input1, input2, input3, input4 };
-
-  // Function to handle OTP input change
   const handleOtpChange = (text: string, index: number) => {
+    if (!/^\d*$/.test(text)) return; // Simple validation: only digits allowed
+
     const newOtp = [...otp];
     newOtp[index] = text;
     setOtp(newOtp);
 
-    // Auto-focus to the next input if typing (i.e., not deleting)
-    if (text.length === 1 && index < 3) {
-      const nextInput = `input${index + 2}` as keyof typeof refs;
-      refs[nextInput].current?.focus();
+    if (text.length === 1 && index < size - 1) {
+      refs.current[index + 1]?.focus();
     }
 
-    // Auto-submit OTP when all fields are filled
     if (newOtp.every((digit) => digit !== '')) {
       handleVerifyOtp(newOtp);
     }
@@ -50,23 +43,35 @@ const LoginScreen = () => {
     if (event.nativeEvent.key === 'Backspace') {
       const newOtp = [...otp];
 
-      // If the current input has a value, clear it but stay on the current input
       if (newOtp[index]) {
         newOtp[index] = ''; // Clear the current value
         setOtp(newOtp);
-      }
-      // If the current input is empty, move to the previous input and clear it
-      else if (index > 0) {
-        const prevInput = `input${index}` as keyof typeof refs;
+      } else if (index > 0) {
         newOtp[index - 1] = ''; // Clear the previous value
         setOtp(newOtp);
-        refs[prevInput].current?.focus(); // Focus the previous input
+        refs.current[index - 1]?.focus(); // Focus the previous input
       }
     }
   };
 
+  const handlePaste = (e: ClipboardEvent) => {
+    e.preventDefault();
+    const clipboardData = e.clipboardData?.getData('text').slice(0, size) ?? '';
+    const otpArray = clipboardData.split('').slice(0, size);
+    setOtp(otpArray);
+
+    // Automatically fill inputs based on paste data
+    otpArray.forEach((digit, index) => {
+      refs.current[index]?.setNativeProps({ text: digit });
+    });
+
+    if (otpArray.length === size) {
+      handleVerifyOtp(otpArray);
+    }
+  };
+
   const handleVerifyOtp = (newOtp: string[]) => {
-    setLoading(true); // Set loading state to true
+    setLoading(true);
     console.log('OTP Verified:', newOtp.join(''));
     setTimeout(() => {
       setLoading(false);
@@ -75,29 +80,30 @@ const LoginScreen = () => {
   };
 
   return (
-    <StyledScrollView className='bg-dark relative flex flex-col'>
-      <StyledView className='w-full flex flex-col justify-between p-3 mt-10'>
-        <StyledView className='flex flex-col gap-8'>
+    <StyledScrollView className='bg-secondary relative flex flex-col'>
+      <StyledView className='flex flex-col justify-between'>
+        <StyledView className='h-96 justify-center flex flex-col gap-8 bg-primary rounded-br-[50px]'>
           <StyledView>
-            <StyledText className='text-lg font-bold text-center text-light'>
+            <StyledText className='text-lg font-bold text-center text-dark'>
               Enter the code sent to
             </StyledText>
-            <StyledText className='text-lg font-bold text-center text-white'>
+            <StyledText className='text-lg font-bold text-center text-dark'>
               +91 000000000
             </StyledText>
           </StyledView>
 
           <StyledView className='flex-row justify-around'>
-            {Object.values(refs).map((ref, index) => (
+            {Array.from({ length: size }).map((_, index) => (
               <StyledTextInput
-                ref={ref}
+                ref={(el) => (refs.current[index] = el as TextInput)}
                 key={index}
-                className='border border-borderColor bg-secondary-dark p-3 w-14 h-14 text-lg text-center rounded-md text-light'
+                className='border border-dark bg-input p-3 w-14 h-14 text-lg text-center rounded-md text-dark'
                 keyboardType='numeric'
                 onChangeText={(text) => handleOtpChange(text, index)}
                 onKeyPress={(event) => handleKeyPress(event, index)}
                 maxLength={1}
                 value={otp[index]}
+                onPaste={(e) => handlePaste(e as any)} // Handle paste event
               />
             ))}
           </StyledView>
@@ -106,21 +112,21 @@ const LoginScreen = () => {
             className='self-center'
             onPress={() => console.log('Resend OTP')}
           >
-            <StyledText className='text-center text-lg text-light'>
+            <StyledText className='text-center text-lg text-dark'>
               Didn’t receive the code?{' '}
-              <StyledText className='underline text-white'>Resend</StyledText>
+              <StyledText className='underline text-dark'>Resend</StyledText>
             </StyledText>
           </StyledTouchableOpacity>
         </StyledView>
       </StyledView>
 
-      <StyledView className='mr-8 relative h-[570px]'>
+      <StyledView className='mr-8 relative h-[450px]'>
         <StyledTouchableOpacity
-          className='bg-primary p-4 ml-4 rounded-md w-full absolute bottom-0'
+          className='bg-dark p-4 ml-4 rounded-md w-full absolute bottom-0'
           onPress={() => handleVerifyOtp(otp)}
-          disabled={!otp.every((digit) => digit !== '') || loading} // Disable button during loading or until OTP is filled
+          disabled={!otp.every((digit) => digit !== '') || loading}
         >
-          <StyledText className='text-center text-lg text-dark font-bold'>
+          <StyledText className='text-center text-lg text-white font-bold'>
             {loading ? 'Verifying...' : 'Verify Me'}
           </StyledText>
         </StyledTouchableOpacity>

@@ -85,7 +85,7 @@ const concern = [
       'https://www.yesmadam.com/blog/wp-content/uploads/2022/08/EYE-CREAM-min.jpg',
   },
   {
-    name: 'stomach & liver care',
+    name: 'liver care',
     imageUrl:
       'https://www.divyanursinghome.in/wp-content/uploads/2023/06/gastro.jpg',
   },
