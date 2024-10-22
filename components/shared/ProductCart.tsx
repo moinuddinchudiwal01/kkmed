@@ -5,6 +5,7 @@ import {
   StyledText,
   StyledView,
 } from './StyledComponents';
+import { Ionicons } from '@expo/vector-icons';
 interface ProductProps {
   name: string;
   price: string;
@@ -19,20 +20,30 @@ const ProductCard: React.FC<ProductProps> = ({
   imageUrl,
 }) => {
   let orginalName = name;
-  if (orginalName.length > 17) {
-    orginalName = orginalName.substring(0, 17) + '...';
+  if (orginalName.length > 22) {
+    orginalName = orginalName.substring(0, 22) + '...';
   }
   return (
-    <StyledTouchableOpacity className='mr-3 bg-primary w-40 h-48 rounded-lg'>
+    <StyledTouchableOpacity className='mr-3 bg-primary w-[180px] h-60 rounded-lg'>
       <StyledImage
         source={{ uri: imageUrl }}
-        className='h-28 w-40 rounded-lg'
+        className='h-36 w-full rounded-lg'
       />
       <StyledView className='flex flex-col pl-1 h-full '>
         <StyledText className='text-base font-bold px-2 my-1 pt-2'>
           {orginalName}
         </StyledText>
-        <StyledText className='text-xl font-bold px-2'>₹{price}</StyledText>
+        <StyledView className='flex flex-row items-center pr-3 w-full justify-between'>
+          <StyledView>
+            <StyledText className='text-base font-medium px-2 line-through'>
+              ₹{price}
+            </StyledText>
+            <StyledText className='text-xl font-bold px-2'>₹{price}</StyledText>
+          </StyledView>
+          <StyledTouchableOpacity className='bg-dark w-10 h-10 rounded-full flex items-center justify-center'>
+            <Ionicons name='add-sharp' size={24} color='white' />
+          </StyledTouchableOpacity>
+        </StyledView>
       </StyledView>
     </StyledTouchableOpacity>
   );

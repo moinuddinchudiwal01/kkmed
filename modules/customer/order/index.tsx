@@ -14,19 +14,23 @@ const OrderScreen = () => {
   const [activeTab, setActiveTab] = useState('Delivered');
 
   return (
-    <StyledScrollView className='bg-gray-100'>
+    <StyledScrollView className='bg-secondary px-2 py-4'>
       {/* Header */}
-      <Header className='order_header' title='My Orders'></Header>
+      <Header
+        className='order_header'
+        title='My Orders'
+        backUrl={ROUTES.HOME.ROOT}
+      ></Header>
       {/* Tabs */}
-      <StyledView className='flex-row justify-around mb-2'>
+      <StyledView className='flex-row justify-around mb-2 mt-4'>
         {['Delivered', 'Processing', 'Cancelled'].map((tab) => (
           <StyledPressable
             key={tab}
             onPress={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-black' : 'bg-transparent border'}`}
+            className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-dark' : 'bg-transparent border'}`}
           >
             <StyledText
-              className={`${activeTab === tab ? 'text-white' : 'text-black'}`}
+              className={`${activeTab === tab ? 'text-white' : 'text-dark'}`}
             >
               {tab}
             </StyledText>
@@ -38,7 +42,7 @@ const OrderScreen = () => {
       {[1, 2, 3].map((_order, index) => (
         <StyledView
           key={index}
-          className='bg-gray-100 p-4 mx-2 my-3 rounded-lg shadow-md shadow-gray-500'
+          className='bg-primary p-4 mx-2 my-3 rounded-lg shadow-md shadow-gray-500'
         >
           <StyledView className='flex-row justify-between mb-2'>
             <StyledText className='text-black text-lg font-bold'>
@@ -55,11 +59,12 @@ const OrderScreen = () => {
             <StyledText className='text-black'>Total Amount: 112$</StyledText>
           </StyledView>
           <StyledView className='flex-row justify-between items-center'>
-            <StyledTouchableOpacity className='border border-gray-500 rounded-full px-4 py-1 mt-2'>
+            <StyledTouchableOpacity className='bg-dark rounded-full px-4 py-1 mt-2'>
               <Link
                 href={
                   `${ROUTES.CUSTOMER.PAGES.ORDERS.ORDERS_DETAILS}${'PID123'}` as any
                 }
+                className='text-white font-normal text-sm'
               >
                 details
               </Link>
