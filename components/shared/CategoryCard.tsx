@@ -21,7 +21,7 @@ const CategoryCard: React.FC<CategoryProps> = ({ name, imageUrl, id }) => {
           `${ROUTES.CUSTOMER.PAGES.HOME.CATEGORY_LISTING}${id}` as Href<string>
         )
       }
-      className='m-2 bg-white w-[29%] items-center p-2 rounded-lg shadow-lg shadow-gray-500'
+      className='m-2 bg-primary w-[29%] items-center p-2 rounded-lg'
     >
       <StyledView className='p-1 items-center'>
         <StyledImage

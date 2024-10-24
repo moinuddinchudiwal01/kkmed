@@ -9,7 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 interface ProductProps {
   name: string;
   price: string;
-  originalPrice: string;
+  // originalPrice: string;
   imageUrl: string;
 }
 
@@ -20,11 +20,11 @@ const ProductCard: React.FC<ProductProps> = ({
   imageUrl,
 }) => {
   let orginalName = name;
-  if (orginalName.length > 22) {
-    orginalName = orginalName.substring(0, 22) + '...';
+  if (orginalName.length > 20) {
+    orginalName = orginalName.substring(0, 20) + '...';
   }
   return (
-    <StyledTouchableOpacity className='mr-3 bg-primary w-[180px] h-60 rounded-lg'>
+    <StyledView className='mr-3 bg-primary w-[175px] h-60 rounded-lg'>
       <StyledImage
         source={{ uri: imageUrl }}
         className='h-36 w-full rounded-lg'
@@ -45,7 +45,7 @@ const ProductCard: React.FC<ProductProps> = ({
           </StyledTouchableOpacity>
         </StyledView>
       </StyledView>
-    </StyledTouchableOpacity>
+    </StyledView>
   );
 };
 

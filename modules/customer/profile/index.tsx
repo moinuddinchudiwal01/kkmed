@@ -11,7 +11,7 @@ const StyledImage = styled(Image);
 
 export default function ProfileScreen() {
   return (
-    <StyledScrollView className='bg-secondary p-4 '>
+    <StyledScrollView className='bg-secondary p-4'>
       <StyledView className='bg-dark rounded-lg mb-4'>
         <StyledView className='flex-col items-center p-4 gap-2'>
           <StyledImage
@@ -69,7 +69,7 @@ export default function ProfileScreen() {
         url={ROUTES.CUSTOMER.PAGES.PROFILE.INVITE_FRIENDS}
       />
 
-      <StyledView className='flex flex-row flex-wrap items-center gap-2 mt-1'>
+      <StyledView className='flex flex-row flex-wrap items-center gap-2 mt-1 mb-24'>
         <StyledText className='p-4 w-[47.5%] text-center rounded-lg text-lg bg-primary text-black font-bold'>
           Need Help?
         </StyledText>

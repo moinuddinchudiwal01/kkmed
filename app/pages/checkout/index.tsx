@@ -1,22 +1,22 @@
+import Button from '@components/button';
 import Header from '@components/header';
 import {
   StyledScrollView,
   StyledText,
   StyledTextInput,
-  StyledTouchableOpacity,
   StyledView,
 } from '@components/shared/StyledComponents';
-import { Ionicons } from '@expo/vector-icons';
 import { ROUTES } from 'core/utils/routes';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 
 const Checkout = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [address, setAddress] = useState({
-    name: 'John Doe',
-    street: '123 Main St, Suite 500',
-    city: 'San Francisco, CA 94105',
-    country: 'United States',
+    name: 'kasim kadiwala',
+    street: 'kadiwala compound',
+    city: 'rasulpur',
+    country: 'gujarat',
   });
 
   const toggleEdit = () => {
@@ -25,7 +25,7 @@ const Checkout = () => {
 
   const renderEditField = (label: string, value: string, onChange: any) => (
     <StyledTextInput
-      className='border-b border-gray-300 py-1 mb-2'
+      className='border-b border-dark text-base text-dark font-medium py-1 mb-2'
       value={value}
       onChangeText={onChange}
       placeholder={label}
@@ -33,29 +33,15 @@ const Checkout = () => {
   );
 
   return (
-    <StyledScrollView className='bg-white px-3'>
+    <StyledScrollView className='bg-secondary px-3'>
       {/* Header */}
-      <Header title='Checkout' backUrl={ROUTES.CUSTOMER.PAGES.HOME.CART}>
-        <Ionicons name='cart' size={24} color='black' />
-      </Header>
+      <Header title='Checkout' backUrl={ROUTES.CUSTOMER.PAGES.HOME.CART} />
 
       <StyledText className='text-lg font-bold mt-3 pl-2'>
         Shipping Address
       </StyledText>
 
-      <StyledView className='bg-gray-100 p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>
-        <StyledView className='flex-row justify-end items-center bg-gray-100'>
-          <StyledTouchableOpacity>
-            <StyledText
-              className='text-secondary capitalize'
-              onPress={toggleEdit}
-            >
-              {isEditing ? 'save' : 'change'}
-            </StyledText>
-          </StyledTouchableOpacity>
-        </StyledView>
-
-        {/* Address Details */}
+      <StyledView className='flex-row relative bg-primary p-4 mt-4 rounded-lg mb-4'>
         <StyledView>
           {isEditing ? (
             <>
@@ -74,19 +60,35 @@ const Checkout = () => {
             </>
           ) : (
             <>
-              <StyledText className='text-base'>{address.name}</StyledText>
-              <StyledText className='text-base'>{address.street}</StyledText>
-              <StyledText className='text-base'>{address.city}</StyledText>
-              <StyledText className='text-base'>{address.country}</StyledText>
+              <StyledText className='text-base text-dark font-medium'>
+                {address.name}
+              </StyledText>
+              <StyledText className='text-base text-dark font-medium'>
+                {address.street}
+              </StyledText>
+              <StyledText className='text-base text-dark font-medium'>
+                {address.city}
+              </StyledText>
+              <StyledText className='text-base text-dark font-medium'>
+                {address.country}
+              </StyledText>
             </>
           )}
         </StyledView>
+        <StyledView className='absolute right-2 top-2'>
+          <StyledText
+            className='text-dark font-bold texxt-base capitalize'
+            onPress={toggleEdit}
+          >
+            {isEditing ? 'save' : 'change'}
+          </StyledText>
+        </StyledView>
       </StyledView>
 
-      <StyledView className='bg-gray-100 p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>
+      <StyledView className='bg-primary p-4 mt-5 rounded-lg shadow-md mb-4 drop-shadow-2xl'>
         {/* Order Row */}
         <StyledView className='flex-row justify-between'>
-          <StyledText className='text-gray-500 font-semibold'>
+          <StyledText className='text-gray-700 text-base font-semibold'>
             Order:
           </StyledText>
           <StyledText className='font-bold'>$500</StyledText>
@@ -94,7 +96,7 @@ const Checkout = () => {
 
         {/* Delivery Row */}
         <StyledView className='flex-row justify-between mt-2'>
-          <StyledText className='text-gray-500 font-semibold'>
+          <StyledText className='text-gray-700 text-base font-semibold'>
             Delivery:
           </StyledText>
           <StyledText className='font-bold'>$50</StyledText>
@@ -102,7 +104,7 @@ const Checkout = () => {
 
         {/* Summary Row */}
         <StyledView className='flex-row justify-between mt-2'>
-          <StyledText className='text-gray-500 font-semibold'>
+          <StyledText className='text-gray-700 text-base font-semibold'>
             Summary:
           </StyledText>
           <StyledText className='font-bold'>$550</StyledText>
@@ -110,11 +112,10 @@ const Checkout = () => {
       </StyledView>
 
       {/* submit Button */}
-      <StyledTouchableOpacity className='mt-4 bg-secondary py-4 rounded-lg flex-row justify-center items-center'>
-        <StyledText className='text-white font-bold text-center capitalize'>
-          Submit order
-        </StyledText>
-      </StyledTouchableOpacity>
+      <Button
+        title='Submit'
+        onPress={() => router.push(`${ROUTES.CUSTOMER.TABS.HOME}` as any)}
+      />
     </StyledScrollView>
   );
 };

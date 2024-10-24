@@ -10,7 +10,7 @@ import React from 'react';
 
 const CategoryPage = () => {
   return (
-    <StyledScrollView className='bg-gray-100 px-4 py-4'>
+    <StyledScrollView className='bg-secondary px-4 py-2 '>
       <Header title='Categories' backUrl={ROUTES.CUSTOMER.TABS.HOME}></Header>
       <StyledView className='flex flex-row gap-2 flex-wrap items-center mt-4'>
         {category.map((item, index) => (

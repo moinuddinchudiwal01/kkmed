@@ -8,7 +8,7 @@ import {
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Href, Link } from 'expo-router';
 import React from 'react';
-import ProductCart from '@components/shared/ProductCart';
+import ProductCard from '@components/shared/ProductCard';
 import ConcernCard from '@components/shared/ConcernCard';
 import { concern, products } from 'data/homePageData';
 import { ROUTES } from 'core/utils/routes';
@@ -74,7 +74,7 @@ export default function HomeScreen() {
         className='mb-4'
       >
         {products.map((product, index) => (
-          <ProductCart key={index} {...product} />
+          <ProductCard key={index} {...product} />
         ))}
       </StyledScrollView>
 

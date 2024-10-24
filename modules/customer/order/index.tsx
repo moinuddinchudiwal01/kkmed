@@ -1,4 +1,3 @@
-import Header from '@components/header';
 import {
   StyledScrollView,
   StyledText,
@@ -15,12 +14,6 @@ const OrderScreen = () => {
 
   return (
     <StyledScrollView className='bg-secondary px-2 py-4'>
-      {/* Header */}
-      <Header
-        className='order_header'
-        title='My Orders'
-        backUrl={ROUTES.HOME.ROOT}
-      ></Header>
       {/* Tabs */}
       <StyledView className='flex-row justify-around mb-2 mt-4'>
         {['Delivered', 'Processing', 'Cancelled'].map((tab) => (

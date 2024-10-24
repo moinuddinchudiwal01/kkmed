@@ -19,13 +19,13 @@ const Cart = () => {
   const itemsToDisplay = viewMore ? cartItems : cartItems.slice(0, 4);
 
   return (
-    <StyledScrollView className='px-4 py-2 bg-gray-100 '>
+    <StyledScrollView className='px-4 py-2 bg-secondary'>
       <Header
         className='cart_header'
         title={`Your Cart (${cartItems.length})`}
         backUrl={ROUTES.CUSTOMER.TABS.HOME}
-      ></Header>
-      <StyledView className='cart_items mt-4'>
+      />
+      <StyledView className='mt-2'>
         <StyledScrollView
           className={`${viewMore ? 'h-[26rem]' : 'h-auto'}`}
           scrollEnabled={viewMore}
@@ -34,20 +34,20 @@ const Cart = () => {
             return (
               <StyledView
                 key={item.id}
-                className='flex-row items-center justify-between bg-white rounded-xl my-1 py-4 px-3 shadow-md shadow-gray-500'
+                className='flex-row items-center justify-between bg-primary rounded-xl my-1 py-4 px-3 shadow-md shadow-gray-500'
               >
-                <StyledView className='product_image w-20 h-20 bg-white rounded-md'>
+                <StyledView className='product_image w-20 h-20 bg-primary rounded-md'>
                   <StyledImage source={item.image} className='w-full h-full' />
                 </StyledView>
 
                 <StyledView className='product_info'>
-                  <StyledText className='font-semibold text-black mb-1'>
+                  <StyledText className='font-semibold text-base text-dark mb-1'>
                     {item.name}
                   </StyledText>
-                  <StyledText className='text-gray-500 text-xs'>
+                  <StyledText className='text-gray-700 text-xs'>
                     {item.description}
                   </StyledText>
-                  <StyledText className='font-semibold text-lg text-black mt-2 bg-white'>
+                  <StyledText className='font-bold text-lg text-dark mt-2'>
                     Rs.{item.price}
                   </StyledText>
                 </StyledView>
@@ -57,18 +57,18 @@ const Cart = () => {
                     <Ionicons
                       name='close-circle-outline'
                       size={24}
-                      color='gray'
+                      color='dark'
                     />
                   </StyledTouchableOpacity>
                   <StyledView className='flex-row justify-center items-center mt-4'>
-                    <StyledTouchableOpacity className='bg-white rounded-lg p-1 border border-gray-400'>
-                      <Ionicons name='remove' size={20} color='blue' />
+                    <StyledTouchableOpacity className='bg-secondary rounded-lg p-1 '>
+                      <Ionicons name='remove' size={18} color='dark' />
                     </StyledTouchableOpacity>
                     <StyledText className='mx-3 text-lg font-semibold'>
                       {item.quantity}
                     </StyledText>
-                    <StyledTouchableOpacity className='bg-blue-200 rounded-lg p-1'>
-                      <Ionicons name='add' size={20} color='blue' />
+                    <StyledTouchableOpacity className='bg-dark rounded-lg p-1'>
+                      <Ionicons name='add' size={18} color='white' />
                     </StyledTouchableOpacity>
                   </StyledView>
                 </StyledView>
@@ -81,13 +81,13 @@ const Cart = () => {
           <StyledView className='flex-row justify-end py-2'>
             {!viewMore ? (
               <StyledTouchableOpacity onPress={() => setViewMore(true)}>
-                <StyledText className='pr-2 text-blue-500 font-semibold'>
+                <StyledText className='pr-2 text-dark font-semibold'>
                   View More
                 </StyledText>
               </StyledTouchableOpacity>
             ) : (
               <StyledTouchableOpacity onPress={() => setViewMore(false)}>
-                <StyledText className='pr-2 text-blue-500 font-semibold'>
+                <StyledText className='pr-2 text-dark font-semibold'>
                   View Less
                 </StyledText>
               </StyledTouchableOpacity>
@@ -96,33 +96,41 @@ const Cart = () => {
         )}
       </StyledView>
       {/* Payment Summary */}
-      <StyledView className=' bg-white rounded-2xl py-4 shadow-md shadow-gray-500'>
-        <StyledText className='font-bold text-black mb-2 px-4'>
+      <StyledView className=' bg-primary rounded-2xl py-4'>
+        <StyledText className='font-bold text-dark text-lg mb-2 px-4'>
           Payment Summary
         </StyledText>
 
         <StyledView className='px-4'>
           <StyledView className='flex-row justify-between'>
-            <StyledText className='text-gray-500'>Order Total</StyledText>
-            <StyledText className='text-black'>Rs. 228.80</StyledText>
+            <StyledText className='text-dark font-normal text-base'>
+              Order Total
+            </StyledText>
+            <StyledText className='text-dark'>Rs. 228.80</StyledText>
           </StyledView>
           <StyledView className='flex-row justify-between mt-2'>
-            <StyledText className='text-gray-500'>Items Discount</StyledText>
-            <StyledText className='text-black'>- 28.80</StyledText>
+            <StyledText className='text-dark font-normal text-base'>
+              Items Discount
+            </StyledText>
+            <StyledText className='text-dark'>- 28.80</StyledText>
           </StyledView>
           <StyledView className='flex-row justify-between mt-2'>
-            <StyledText className='text-gray-500'>Coupon Discount</StyledText>
-            <StyledText className='text-black'>- 15.80</StyledText>
+            <StyledText className='text-dark font-normal text-base'>
+              Coupon Discount
+            </StyledText>
+            <StyledText className='text-dark'>- 15.80</StyledText>
           </StyledView>
           <StyledView className='flex-row justify-between mt-2'>
-            <StyledText className='text-gray-500'>Shipping</StyledText>
-            <StyledText className='text-black'>Free</StyledText>
+            <StyledText className='text-dark font-normal text-base'>
+              Shipping
+            </StyledText>
+            <StyledText className='text-dark'>Free</StyledText>
           </StyledView>
         </StyledView>
 
         <StyledView className='flex-row justify-between mt-4 px-4'>
-          <StyledText className='font-bold text-black'>Total</StyledText>
-          <StyledText className='font-bold text-black'>Rs. 185.00</StyledText>
+          <StyledText className='font-bold text-dark'>Total</StyledText>
+          <StyledText className='font-bold text-dark'>Rs. 185.00</StyledText>
         </StyledView>
       </StyledView>
       <Button
