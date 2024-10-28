@@ -2,7 +2,6 @@
   "expo": {
     "name": "kkmed",
     "slug": "kkmed",
-    "entryPoint": "./app/_layout.tsx",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -33,6 +32,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d093bb59-180c-4dbd-bf21-9b9217c29c52"
+      }
     }
   }
 }
