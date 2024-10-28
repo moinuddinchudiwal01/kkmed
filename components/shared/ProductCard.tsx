@@ -6,25 +6,38 @@ import {
   StyledView,
 } from './StyledComponents';
 import { Ionicons } from '@expo/vector-icons';
+import { Href, useRouter } from 'expo-router';
+import { ROUTES } from 'core/utils/routes';
 interface ProductProps {
   name: string;
   price: string;
-  // originalPrice: string;
+  originalPrice: string;
   imageUrl: string;
+  id: string;
 }
 
 const ProductCard: React.FC<ProductProps> = ({
   name,
   price,
-  // originalPrice,
+  originalPrice,
   imageUrl,
+  id,
 }) => {
   let orginalName = name;
   if (orginalName.length > 20) {
     orginalName = orginalName.substring(0, 20) + '...';
   }
+  const router = useRouter();
   return (
-    <StyledView className='mr-3 bg-primary w-[175px] h-60 rounded-lg'>
+    <StyledTouchableOpacity
+      onPress={() =>
+        router.push(
+          `${ROUTES.CUSTOMER.PAGES.HOME.PRODUCT_DETAILS}${id}` as Href<string>
+        )
+      }
+      activeOpacity={1}
+      className='mr-3 bg-primary w-[175px] h-60 rounded-lg'
+    >
       <StyledImage
         source={{ uri: imageUrl }}
         className='h-36 w-full rounded-lg'
@@ -36,7 +49,7 @@ const ProductCard: React.FC<ProductProps> = ({
         <StyledView className='flex flex-row items-center pr-3 w-full justify-between'>
           <StyledView>
             <StyledText className='text-base font-medium px-2 line-through'>
-              ₹{price}
+              ₹{originalPrice}
             </StyledText>
             <StyledText className='text-xl font-bold px-2'>₹{price}</StyledText>
           </StyledView>
@@ -45,7 +58,7 @@ const ProductCard: React.FC<ProductProps> = ({
           </StyledTouchableOpacity>
         </StyledView>
       </StyledView>
-    </StyledView>
+    </StyledTouchableOpacity>
   );
 };
 

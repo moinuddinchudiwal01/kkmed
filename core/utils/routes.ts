@@ -24,8 +24,6 @@ export const ROUTES = {
       PROFILE: {
         WISHLIST: '/pages/wishlist',
         MYPRESCRIPTION: '/pages/myprescription',
-        LABTEST: '/pages/labtest',
-        CONSULTATION: '/pages/consultation',
         PAYMENT: '/pages/payment',
         ADDRESS: '/pages/address',
         PILL_REMINDER: '/pages/pillreminder',

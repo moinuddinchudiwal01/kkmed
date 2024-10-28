@@ -24,13 +24,14 @@
         "medicine_uses": [
           {
             "title": "Uses of Dolo 650 MG",
-            "description": "Dolo 650 tablets relieve pain and fever. It is used to treat headaches, muscle aches, toothaches, and fevers. Dolo 650 also helps with pain and inflammation from conditions like arthritis, spondylitis, and sports injuries."
+            "description": "Dolo 650 tablets relieve pain and fever. It is used to treat headaches, muscle aches, toothaches, and fevers. Dolo 650 also helps with pain and inflammation from conditions like arthritis, spondylitis, and sports injuries.",
+            "main_effects": ""
           }
         ],
         "medicine_side_effects": [
           {
             "title": "Side effects of Dolo 650 MG",
-            "description": "Chances of developing side effects with the Dolo 650 are rare if taken within the recommended doses. However, in rare cases, you may experience -",
+            "description": "Chances of developing side effects with the Dolo 650 are rare if taken within the recommended doses. However, in rare cases, you may experience",
             "main_effects": [
               "Skin rash",
               "Itching",

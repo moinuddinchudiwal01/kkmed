@@ -2,7 +2,6 @@ import {
   StyledPressable,
   StyledScrollView,
   StyledText,
-  StyledTextInput,
   StyledView,
 } from '@components/shared/StyledComponents';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -13,35 +12,37 @@ import ConcernCard from '@components/shared/ConcernCard';
 import { concern, products } from 'data/homePageData';
 import { ROUTES } from 'core/utils/routes';
 import Button from '@components/button';
+import SearchBar from '@components/searchBar/SearchBar';
 
 export default function HomeScreen() {
   return (
     <StyledScrollView className='bg-secondary px-4 py-4'>
       <StyledView className='flex-row justify-between gap-2 items-center mb-4'>
-        <StyledView className='flex-row items-center justify-center'>
-          <Ionicons name='location-outline' size={24} color='black' />
-          <StyledText className='text-lg font-bold text-dark'>
+        <StyledView className='relative flex-row bg-dark px-6 py-1 justify-end items-end rounded-full'>
+          <StyledView className='absolute left-2 top-[6px]'>
+            <Ionicons name='location-outline' size={22} color='white' />
+          </StyledView>
+          <StyledText className='relative left-2 text-lg font-bold text-light uppercase'>
             Ahmedabad
           </StyledText>
         </StyledView>
 
         <StyledView className='flex-row gap-1 items-center'>
-          <Link href={ROUTES.CUSTOMER.PAGES.HOME.NOTIFICATION as Href<string>}>
-            <Ionicons name='notifications-outline' size={26} color='black' />
+          <Link
+            href={ROUTES.CUSTOMER.PAGES.HOME.NOTIFICATION as Href<string>}
+            className='p-2 bg-dark rounded-full'
+          >
+            <Ionicons name='notifications-outline' size={22} color='white' />
           </Link>
-          <Link href={ROUTES.CUSTOMER.PAGES.HOME.CART as Href<string>}>
-            <Ionicons name='bag-handle-outline' size={26} color='black' />
+          <Link
+            href={ROUTES.CUSTOMER.PAGES.HOME.CART as Href<string>}
+            className='p-2 bg-dark rounded-full'
+          >
+            <Ionicons name='bag-handle-outline' size={22} color='white' />
           </Link>
         </StyledView>
       </StyledView>
-
-      <StyledView className='flex-row justify-between items-center mb-2'>
-        <StyledTextInput
-          placeholder='Search Medicines & Healthcare Products'
-          className='text-gray-700 w-full border-dark bg-input border p-3 rounded-lg text-lg'
-          style={{ paddingLeft: 13 }}
-        />
-      </StyledView>
+      <SearchBar placeholder='Search Medicines & Healthcare Products' />
 
       <Button title='Order Via Prescription' onPress={() => {}} />
 

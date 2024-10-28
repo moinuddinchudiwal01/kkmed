@@ -5,6 +5,7 @@ const products = [
     originalPrice: '150.000',
     imageUrl:
       'https://hips.hearstapps.com/hmg-prod/images/gettyimages-907329974-1661963045.jpg',
+    id: '1',
   },
   {
     name: 'Ibuprofen 250mg',
@@ -12,6 +13,7 @@ const products = [
     originalPrice: '24.000',
     imageUrl:
       'https://5.imimg.com/data5/SELLER/Default/2023/6/319597573/MH/NE/SR/135658020/ibuprofen-400-mg-bp-tablets.jpg',
+    id: '2',
   },
   {
     name: 'Fish Oil 1000 (30pcs)',
@@ -19,6 +21,7 @@ const products = [
     originalPrice: '150.000',
     imageUrl:
       'https://hips.hearstapps.com/hmg-prod/images/gettyimages-907329974-1661963045.jpg',
+    id: '3',
   },
   {
     name: 'Ibuprofen 250mg',
@@ -26,6 +29,7 @@ const products = [
     originalPrice: '24.000',
     imageUrl:
       'https://5.imimg.com/data5/SELLER/Default/2023/6/319597573/MH/NE/SR/135658020/ibuprofen-400-mg-bp-tablets.jpg',
+    id: '4',
   },
 ];
 

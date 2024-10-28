@@ -3,6 +3,7 @@ import React from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ROUTES } from 'core/utils/routes';
+import ProfileOption from '@components/profileOptions/ProfileOption';
 const StyledView = styled(View);
 const StyledText = styled(Text);
 const StyledTouchableOpacity = styled(TouchableOpacity);
@@ -32,12 +33,6 @@ export default function ProfileScreen() {
           <Ionicons name='create-outline' size={32} color='white' />
         </StyledTouchableOpacity>
       </StyledView>
-
-      <ProfileOption
-        title='My Orders'
-        icon='document-text-outline'
-        url={ROUTES.CUSTOMER.TABS.ORDERS}
-      />
       <ProfileOption
         title='My Wishlist'
         icon='heart-outline'
@@ -80,22 +75,3 @@ export default function ProfileScreen() {
     </StyledScrollView>
   );
 }
-
-const ProfileOption = ({
-  title,
-  icon,
-}: {
-  title: string;
-  icon: string;
-  url: string;
-}) => (
-  <StyledView
-    // href={url as any}
-    className='relative px-4 py-4 flex flex-row justify-between bg-primary shadow-lg my-1 rounded-lg'
-  >
-    <StyledView className='flex-row items-center'>
-      <Ionicons name={icon as any} size={28} color='black' />
-      <StyledText className='ml-4 text-black text-lg'>{title}</StyledText>
-    </StyledView>
-  </StyledView>
-);
